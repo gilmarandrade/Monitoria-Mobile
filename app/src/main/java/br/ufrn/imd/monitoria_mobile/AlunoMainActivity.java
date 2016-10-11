@@ -1,8 +1,23 @@
 package br.ufrn.imd.monitoria_mobile;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +27,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import br.ufrn.imd.monitoria_mobile.br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
+
+import static br.ufrn.imd.monitoria_mobile.R.id.imageView;
 
 public class AlunoMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ImageView imageViewAluno1, imageViewAluno2, imageViewAluno3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +62,20 @@ public class AlunoMainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        imageViewAluno1 = (ImageView) findViewById(R.id.imageViewAluno1);
+        imageViewAluno2 = (ImageView) findViewById(R.id.imageViewAluno2);
+        imageViewAluno3 = (ImageView) findViewById(R.id.imageViewAluno3);
+
+        Drawable roundedImage1 = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
+        imageViewAluno1.setImageDrawable(roundedImage1);
+        Drawable roundedImage2 = RoundedImageView.getRoundedImageView(R.drawable.user5, 200.0f, getResources());
+        imageViewAluno2.setImageDrawable(roundedImage2);
+        Drawable roundedImage3 = RoundedImageView.getRoundedImageView(R.drawable.user2, 200.0f, getResources());
+        imageViewAluno3.setImageDrawable(roundedImage3);
+
     }
 
     @Override
@@ -98,4 +134,5 @@ public class AlunoMainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
