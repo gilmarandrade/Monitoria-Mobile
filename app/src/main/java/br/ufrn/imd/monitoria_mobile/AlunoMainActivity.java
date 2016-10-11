@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.View;
@@ -27,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import br.ufrn.imd.monitoria_mobile.br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
@@ -64,18 +66,22 @@ public class AlunoMainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
+/*
         imageViewAluno1 = (ImageView) findViewById(R.id.imageViewAluno1);
         imageViewAluno2 = (ImageView) findViewById(R.id.imageViewAluno2);
         imageViewAluno3 = (ImageView) findViewById(R.id.imageViewAluno3);
 
-        Drawable roundedImage1 = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
+       Drawable roundedImage1 = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
         imageViewAluno1.setImageDrawable(roundedImage1);
         Drawable roundedImage2 = RoundedImageView.getRoundedImageView(R.drawable.user5, 200.0f, getResources());
         imageViewAluno2.setImageDrawable(roundedImage2);
         Drawable roundedImage3 = RoundedImageView.getRoundedImageView(R.drawable.user2, 200.0f, getResources());
         imageViewAluno3.setImageDrawable(roundedImage3);
+*/
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
+        ft.commit();
     }
 
     @Override
@@ -116,13 +122,18 @@ public class AlunoMainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_duvidas_gerais) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
+            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
+        } else if (id == R.id.nav_minhas_duvidas) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_notificacoes) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_ranking) {
+
+        } else if (id == R.id.nav_chat) {
 
         } else if (id == R.id.nav_share) {
 
@@ -134,5 +145,6 @@ public class AlunoMainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 }
