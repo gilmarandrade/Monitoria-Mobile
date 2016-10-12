@@ -28,13 +28,13 @@
         <menu>
             <item
                 android:id="@+id/nav_duvidas_turma1"
-                android:title="Fundamentos Matemáticos da Computação II" />
+                android:title="FMC II - Fundamentos Matemáticos da Computação II" />
             <item
                 android:id="@+id/nav_duvidas_turma2"
-                android:title="Densenvolvimento de Sistema para Dispostivos Móveis" />
+                android:title="DSDM - Densenvolvimento de Sistema para Dispostivos Móveis" />
             <item
                 android:id="@+id/nav_duvidas_turma3"
-                android:title="Cálculo Diferencial e Integral I" />
+                android:title="CDI I - Cálculo Diferencial e Integral I" />
         </menu>
     </item>
 

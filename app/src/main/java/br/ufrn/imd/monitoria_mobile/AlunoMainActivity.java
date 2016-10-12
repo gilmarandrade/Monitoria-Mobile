@@ -19,6 +19,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -81,6 +82,7 @@ public class AlunoMainActivity extends AppCompatActivity
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
         ft.commit();
+
     }
 
     @Override
@@ -120,22 +122,29 @@ public class AlunoMainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        ActionBar ab = getSupportActionBar();
 
         if (id == R.id.nav_duvidas_gerais) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("Dúvidas");
         } else if (id == R.id.nav_minhas_duvidas) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new MinhasDuvidasFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("Minhas Dúvidas");
         } else if (id == R.id.nav_notificacoes) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new NotificacoesFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("Notificações");
         } else if (id == R.id.nav_ranking) {
             //Snackbar.make(item.getActionView(), "Ranking não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         } else if (id == R.id.nav_chat) {
@@ -143,21 +152,29 @@ public class AlunoMainActivity extends AppCompatActivity
             ft.replace(R.id.content_aluno_main, new ChatFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("Chat");
         } else if (id == R.id.nav_duvidas_turma1) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("FMC II");
         } else if (id == R.id.nav_duvidas_turma2) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("DSDM");
         } else if (id == R.id.nav_duvidas_turma3) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
+
+            ab.setTitle("CDI I");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
