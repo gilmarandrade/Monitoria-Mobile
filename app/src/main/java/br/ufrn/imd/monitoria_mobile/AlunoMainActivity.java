@@ -118,24 +118,24 @@ public class AlunoMainActivity extends AppCompatActivity
         if (id == R.id.nav_duvidas_gerais) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
-            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
         } else if (id == R.id.nav_minhas_duvidas) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new MinhasDuvidasFragment());
-            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
         } else if (id == R.id.nav_notificacoes) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new NotificacoesFragment());
-            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
         } else if (id == R.id.nav_ranking) {
             //Snackbar.make(item.getActionView(), "Ranking não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         } else if (id == R.id.nav_chat) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new ChatFragment());
-            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
         } else if (id == R.id.nav_share) {
 
