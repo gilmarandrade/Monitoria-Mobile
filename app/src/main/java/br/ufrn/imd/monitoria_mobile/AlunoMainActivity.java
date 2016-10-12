@@ -33,12 +33,11 @@ import android.widget.ImageView;
 
 import br.ufrn.imd.monitoria_mobile.br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 
-import static br.ufrn.imd.monitoria_mobile.R.id.imageView;
-
 public class AlunoMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageView imageViewAluno1, imageViewAluno2, imageViewAluno3;
+    private ImageView nav_imageView_usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,14 @@ public class AlunoMainActivity extends AppCompatActivity
         Drawable roundedImage3 = RoundedImageView.getRoundedImageView(R.drawable.user2, 200.0f, getResources());
         imageViewAluno3.setImageDrawable(roundedImage3);
 */
+  /*      nav_imageView_usuario = (ImageView) findViewById(R.id.nav_imageView_usuario);
+        Drawable roundedImage_usuario = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
+        nav_imageView_usuario.setImageDrawable(roundedImage_usuario);
 
+        nav_imageView_usuario = (ImageView) findViewById(R.id.nav_imageView_usuario);
+        Bitmap  mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.user3);
+        nav_imageView_usuario.setImageBitmap(mBitmap);
+       */
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
         ft.commit();
@@ -137,10 +143,21 @@ public class AlunoMainActivity extends AppCompatActivity
             ft.replace(R.id.content_aluno_main, new ChatFragment());
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_duvidas_turma1) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
+        } else if (id == R.id.nav_duvidas_turma2) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
+        } else if (id == R.id.nav_duvidas_turma3) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
