@@ -47,14 +47,7 @@ public class AlunoMainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -128,13 +121,22 @@ public class AlunoMainActivity extends AppCompatActivity
             ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
         } else if (id == R.id.nav_minhas_duvidas) {
-
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new MinhasDuvidasFragment());
+            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
         } else if (id == R.id.nav_notificacoes) {
-
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new NotificacoesFragment());
+            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
         } else if (id == R.id.nav_ranking) {
-
+            //Snackbar.make(item.getActionView(), "Ranking não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         } else if (id == R.id.nav_chat) {
-
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new ChatFragment());
+            ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
