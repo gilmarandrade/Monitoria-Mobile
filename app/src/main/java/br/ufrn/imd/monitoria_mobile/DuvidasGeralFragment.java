@@ -1,6 +1,7 @@
 package br.ufrn.imd.monitoria_mobile;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +27,8 @@ public class DuvidasGeralFragment extends Fragment {
     protected LinearLayoutManager mLayoutManager;
     protected List<DuvidaSimples> mDataset;
 
+    Resources resources;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,8 @@ public class DuvidasGeralFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
+
+        resources =  getActivity().getResources();
     }
 
     @Override
@@ -66,6 +71,7 @@ public class DuvidasGeralFragment extends Fragment {
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mAdapter = new DuvidaSimplesAdapter(mDataset);
+        mAdapter.setResources(resources);
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;

@@ -1,5 +1,7 @@
 package br.ufrn.imd.monitoria_mobile;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,13 +10,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
+
+import br.ufrn.imd.monitoria_mobile.br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
 
 public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAdapter.DuvidaSimplesViewHolder> {
     private List<DuvidaSimples> list;
+    Resources resources;
 
     public DuvidaSimplesAdapter(List<DuvidaSimples> dataSet) {
         this.list = dataSet;
+    }
+
+
+    public void setResources(Resources resources) {
+        this.resources = resources;
     }
 
     @Override
@@ -24,7 +34,8 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
 
     @Override
     public void onBindViewHolder(DuvidaSimplesAdapter.DuvidaSimplesViewHolder duvidaSimplesViewHolder, int i) {
-        //duvidaSimplesViewHolder.vFotoUsuario.setText();
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 80, 80, 200.0f, this.resources);
+        duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         duvidaSimplesViewHolder.vDisciplina.setText(list.get(i).getDisciplina());
         duvidaSimplesViewHolder.vStatus.setText(list.get(i).getStatus().toString());

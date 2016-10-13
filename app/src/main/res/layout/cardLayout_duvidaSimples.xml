@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cv"
-    android:layout_marginBottom="14dp"
+    android:layout_marginBottom="7dp"
     >
 
     <RelativeLayout
@@ -36,8 +36,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/duvidaSimples_fotoUsusario"
             android:maxLines="1"
-            android:textColor="@android:color/black"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <TextView
             android:layout_width="match_parent"
@@ -49,7 +48,8 @@
             android:textColor="@color/cardview_dark_background"
             android:layout_below="@+id/duvidaSimples_nomeUsusario"
             android:layout_alignLeft="@+id/duvidaSimples_nomeUsusario"
-            android:layout_alignStart="@+id/duvidaSimples_nomeUsusario" />
+            android:layout_alignStart="@+id/duvidaSimples_nomeUsusario"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
             android:layout_width="match_parent"
@@ -69,12 +69,11 @@
             android:id="@+id/duvidaSimples_titulo"
             android:textSize="18sp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-            android:textColor="@android:color/black"
             android:layout_below="@+id/duvidaSimples_fotoUsusario"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="14dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <TextView
             android:layout_width="match_parent"
@@ -82,12 +81,10 @@
             android:id="@+id/duvidaSimples_descricao"
             android:textSize="14sp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-            android:textColor="@android:color/black"
             android:layout_below="@+id/duvidaSimples_titulo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="14dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:layout_marginTop="14dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,11 +93,11 @@
             android:textSize="12sp"
             android:text="3 curtidas"
             android:maxLines="1"
-            android:textColor="@color/cardview_dark_background"
             android:layout_below="@+id/duvidaSimples_descricao"
             android:layout_alignLeft="@+id/duvidaSimples_descricao"
             android:layout_alignStart="@+id/duvidaSimples_descricao"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,13 +106,13 @@
             android:textSize="12sp"
             android:text="3 respostas"
             android:maxLines="1"
-            android:textColor="@color/cardview_dark_background"
             android:layout_alignBaseline="@+id/duvidaSimples_curtidas"
             android:layout_alignBottom="@+id/duvidaSimples_curtidas"
             android:layout_alignLeft="@+id/duvidaSimples_status"
             android:layout_alignStart="@+id/duvidaSimples_status"
             android:layout_marginLeft="29dp"
-            android:layout_marginStart="29dp" />
+            android:layout_marginStart="29dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
         <Button
             android:text="curtir"
