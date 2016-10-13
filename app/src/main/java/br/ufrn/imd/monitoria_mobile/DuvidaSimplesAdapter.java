@@ -19,7 +19,7 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
 
     @Override
     public int getItemCount() {
-        return list.size()
+        return list.size();
     }
 
     @Override
