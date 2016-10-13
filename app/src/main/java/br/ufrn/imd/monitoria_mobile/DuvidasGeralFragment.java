@@ -13,13 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
+
 
 public class DuvidasGeralFragment extends Fragment {
     private static final int DATASET_COUNT = 10;
     protected RecyclerView mRecyclerView;
-    protected CustomAdapter mAdapter;
+    protected DuvidaSimplesAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
-    protected String[] mDataset;
+    protected List<DuvidaSimples> mDataset;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,9 +76,19 @@ public class DuvidasGeralFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
+        mDataset = new ArrayList<DuvidaSimples>();
+
+        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        int fotos[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
+        String disciplinas[] = {"DSW I - Desenvolvimento de Sistemas Web I", "FMC I - Fundamentos Matemáticos da Computação I", "CDI I - Cálculo Diferencial e Integral I", "DSDM - Desenvolvimento de Sistemas para Dispositivos Móveis"};
+        String titulos[] = {"Socorro Alguém me ajuda!", "JavaFX Threads Atualizar UI e carregar Sistema em segundo plano", "Qual a diferença entre os métodos virtual e abstract?", "Como filtrar um Texto em uma div com angular JS", "Retorno de seleção de radiobutton em C#", "Problemas com autoload"};
+        String descricoes[] = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
+        int curtidas[] = {1, 5, 8, 0, 0, 4, 8, 10, 5, 8, 1, 9, 4, 5, 2, 3, 9, 0, 3, 5};
+        int respostas[] = {9, 0, 3, 5, 8, 8, 0, 5, 2, 1, 0, 4, 5, 0, 1, 13, 8, 5, 9, 4};
+        DuvidaSimples.Status status[] = {DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA, DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA};
+
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "This is element #" + i;
+            mDataset.add(new DuvidaSimples(nomes[i%10], fotos[i%6], disciplinas[i%4], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5] ));
         }
     }
 
