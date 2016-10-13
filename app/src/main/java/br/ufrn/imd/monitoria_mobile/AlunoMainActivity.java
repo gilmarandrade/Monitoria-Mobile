@@ -83,6 +83,9 @@ public class AlunoMainActivity extends AppCompatActivity
         ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
         ft.commit();
 
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Dúvidas");
+
     }
 
     @Override
@@ -146,7 +149,12 @@ public class AlunoMainActivity extends AppCompatActivity
 
             ab.setTitle("Notificações");
         } else if (id == R.id.nav_ranking) {
-            //Snackbar.make(item.getActionView(), "Ranking não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_aluno_main, new RecyclerViewFragment());
+            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
+            ft.commit();
+
+            ab.setTitle("RecyclerViewFragment");
         } else if (id == R.id.nav_chat) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_aluno_main, new ChatFragment());

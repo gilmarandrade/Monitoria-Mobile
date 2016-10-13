@@ -15,37 +15,10 @@ tools:context="br.ufrn.imd.monitoria_mobile.DuvidasGeralFragment">
         tools:showIn="@layout/app_bar_aluno_main"
         android:background="@color/colorGreen">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Duvidas geral"
-            android:id="@+id/textView2" />
-
-        <ImageView
-            android:id="@+id/imageViewAluno1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/user1"/>
-
-        <ImageView
-            android:id="@+id/imageViewAluno2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/user1"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/imageViewAluno1" />
-
-        <ImageView
-            android:id="@+id/imageViewAluno3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/user1"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/imageViewAluno2" />
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_duvidas_geral"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </RelativeLayout>
