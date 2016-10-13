@@ -65,7 +65,7 @@ public class DuvidasGeralFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new CustomAdapter(mDataset);
+        mAdapter = new DuvidaSimplesAdapter(mDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;

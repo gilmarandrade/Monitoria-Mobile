@@ -1,18 +1,14 @@
 package br.ufrn.imd.monitoria_mobile;
 
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.List;
-
 import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
-
-/**
- * Created by gilmar.andrade on 13/10/2016.
- */
 
 public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAdapter.DuvidaSimplesViewHolder> {
     private List<DuvidaSimples> list;
@@ -28,25 +24,43 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
 
     @Override
     public void onBindViewHolder(DuvidaSimplesAdapter.DuvidaSimplesViewHolder duvidaSimplesViewHolder, int i) {
-
-        duvidaSimplesViewHolder.vCardIndice.setText(list[i]);
+        //duvidaSimplesViewHolder.vFotoUsuario.setText();
+        duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
+        duvidaSimplesViewHolder.vDisciplina.setText(list.get(i).getDisciplina());
+        duvidaSimplesViewHolder.vStatus.setText(list.get(i).getStatus().toString());
+        duvidaSimplesViewHolder.vTitulo.setText(list.get(i).getTitulo());
+        duvidaSimplesViewHolder.vDescricao.setText(list.get(i).getDescricao());
+        duvidaSimplesViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
+        duvidaSimplesViewHolder.vRespostas.setText(list.get(i).getTotalRespostas() + " respostas");
     }
 
     @Override
     public DuvidaSimplesAdapter.DuvidaSimplesViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.
-                from(viewGroup.getContext()).
-                inflate(R.layout.cardLayout_duvidaSimples, viewGroup, false);
+       View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardlayout_duvidasimples, viewGroup, false);
 
         return new DuvidaSimplesAdapter.DuvidaSimplesViewHolder(itemView);
     }
 
     public static class DuvidaSimplesViewHolder extends RecyclerView.ViewHolder {
-        protected TextView vCardIndice;
+        protected TextView vNomeUsuario;
+        protected ImageView vFotoUsuario;
+        protected TextView vDisciplina;
+        protected TextView vStatus;
+        protected TextView vTitulo;
+        protected TextView vDescricao;
+        protected TextView vCurtidas;
+        protected TextView vRespostas;
 
         public DuvidaSimplesViewHolder(View v) {
             super(v);
-            vCardIndice = (TextView) v.findViewById(R.id.card_indice);
+            vNomeUsuario = (TextView) v.findViewById(R.id.duvidaSimples_nomeUsusario);
+            vFotoUsuario = (ImageView) v.findViewById(R.id.duvidaSimples_fotoUsusario);
+            vDisciplina = (TextView) v.findViewById(R.id.duvidaSimples_disciplina);
+            vStatus = (TextView) v.findViewById(R.id.duvidaSimples_status);
+            vTitulo = (TextView) v.findViewById(R.id.duvidaSimples_titulo);
+            vDescricao = (TextView) v.findViewById(R.id.duvidaSimples_descricao);
+            vCurtidas = (TextView) v.findViewById(R.id.duvidaSimples_curtidas);
+            vRespostas = (TextView) v.findViewById(R.id.duvidaSimples_respostas);
         }
     }
 }

@@ -124,8 +124,7 @@
             android:layout_below="@+id/duvidaSimples_curtidas"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp"
-            android:textAppearance="@android:style/TextAppearance.Material.Button" />
+            android:layout_marginTop="12dp" />
 
         <Button
             android:text="responder"
