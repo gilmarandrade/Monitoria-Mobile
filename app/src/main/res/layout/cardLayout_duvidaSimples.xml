@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/cv"
+    android:id="@+id/duvidaSimples_card"
     android:layout_marginBottom="7dp"
     >
 
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/duvidaSimples_nomeUsusario"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp"
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/duvidaSimples_disciplina"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:text="CD I - Cálculo Diferencial e Integral I"
             android:maxLines="1"
             android:textColor="@color/cardview_dark_background"
@@ -52,7 +52,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/duvidaSimples_status"
             android:textSize="14sp"
@@ -114,27 +114,51 @@
             android:layout_marginStart="29dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
-        <Button
-            android:text="curtir"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/duvidaSimples_btnCurtir"
             android:layout_below="@+id/duvidaSimples_curtidas"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="20dp">
 
-        <Button
-            android:text="responder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/duvidaSimples_btnResponder"
-            android:layout_alignBottom="@+id/duvidaSimples_btnCurtir"
-            android:layout_alignLeft="@+id/duvidaSimples_respostas"
-            android:layout_alignStart="@+id/duvidaSimples_respostas"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:layout_alignTop="@+id/duvidaSimples_btnCurtir" />
+            <Button
+                android:text=" curtir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/duvidaSimples_btnCurtir"
+                android:drawableLeft="@drawable/ic_thumb_up"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_marginRight="54dp"
+                android:layout_marginEnd="54dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:text=" descurtir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/duvidaSimples_btnDescurtir"
+                android:drawableLeft="@drawable/ic_thumb_up"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:drawableTint="@color/colorWhite"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:layout_weight="1"
+                android:layout_marginBottom="25dp" />
+
+            <Button
+                android:text=" responder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/duvidaSimples_btnResponder"
+                android:drawableLeft="@drawable/ic_chat"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:visibility="visible"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
 
     </RelativeLayout>
 
