@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
-import br.ufrn.imd.monitoria_mobile.adapter.DuvidaSimplesAdapter;
+import br.ufrn.imd.monitoria_mobile.adapter.DuvidasGeralAdapter;
 import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
 
 
 public class DuvidasGeralFragment extends Fragment {
     private static final int DATASET_COUNT = 10;
     protected RecyclerView mRecyclerView;
-    protected DuvidaSimplesAdapter mAdapter;
+    protected DuvidasGeralAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<DuvidaSimples> mDataset;
     //necessário para o RoundedImageView gerar bitmap
@@ -69,7 +69,7 @@ public class DuvidasGeralFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new DuvidaSimplesAdapter(mDataset);
+        mAdapter = new DuvidasGeralAdapter(mDataset);
         mAdapter.setResources(resources);
         mRecyclerView.setAdapter(mAdapter);
 

@@ -4,7 +4,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,11 +21,11 @@ import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
 
-public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAdapter.DuvidaSimplesViewHolder> {
+public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapter.DuvidasGeralViewHolder> {
     private List<DuvidaSimples> list;
     Resources resources;
 
-    public DuvidaSimplesAdapter(List<DuvidaSimples> dataSet) {
+    public DuvidasGeralAdapter(List<DuvidaSimples> dataSet) {
         this.list = dataSet;
     }
 
@@ -41,7 +40,7 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
     }
 
     @Override
-    public void onBindViewHolder(DuvidaSimplesAdapter.DuvidaSimplesViewHolder duvidaSimplesViewHolder, int i) {
+    public void onBindViewHolder(DuvidasGeralViewHolder duvidaSimplesViewHolder, int i) {
         Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.resources);
         duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
@@ -88,13 +87,13 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
     }
 
     @Override
-    public DuvidaSimplesAdapter.DuvidaSimplesViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public DuvidasGeralViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardlayout_duvidasimples, viewGroup, false);
 
-        return new DuvidaSimplesAdapter.DuvidaSimplesViewHolder(itemView);
+        return new DuvidasGeralViewHolder(itemView);
     }
 
-    public static class DuvidaSimplesViewHolder extends RecyclerView.ViewHolder {
+    public static class DuvidasGeralViewHolder extends RecyclerView.ViewHolder {
         protected TextView vNomeUsuario;
         protected ImageView vFotoUsuario;
         protected TextView vDisciplina;
@@ -113,7 +112,7 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
         protected RelativeLayout vOptionalFoto;
 
 
-        public DuvidaSimplesViewHolder(View v) {
+        public DuvidasGeralViewHolder(View v) {
             super(v);
             vNomeUsuario = (TextView) v.findViewById(R.id.duvidaSimples_nomeUsusario);
             vFotoUsuario = (ImageView) v.findViewById(R.id.duvidaSimples_fotoUsusario);

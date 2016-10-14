@@ -13,20 +13,12 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_aluno_main"
-        android:background="#00ffff">
+        android:background="@color/colorGray">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Minhas dúvidas"
-            android:id="@+id/textView2" />
-
-        <ImageView
-            android:id="@+id/imageViewAluno4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/user2"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_minhas_duvidas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 
