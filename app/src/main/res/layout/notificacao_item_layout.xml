@@ -3,10 +3,10 @@
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:padding="6dip"
-    android:id="@+id/chatitem_item">
+    android:id="@+id/notificacaoitem_item">
 
     <ImageView
-        android:id="@+id/chatitem_fotoUsuario"
+        android:id="@+id/notificacaoitem_fotoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
@@ -16,12 +16,12 @@
         android:src="@drawable/foto1" />
 
     <TextView
-        android:id="@+id/chatitem_descricao"
+        android:id="@+id/notificacaoitem_descricao"
         android:layout_width="fill_parent"
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/chatitem_fotoUsuario"
+        android:layout_toRightOf="@id/notificacaoitem_fotoUsuario"
         android:ellipsize="marquee"
         android:maxLines="1"
         android:text="Description"
@@ -29,24 +29,24 @@
         tools:text="dgdfgf" />
 
     <TextView
-        android:id="@+id/chatitem_titulo"
+        android:id="@+id/notificacaoitem_titulo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/chatitem_descricao"
+        android:layout_above="@id/notificacaoitem_descricao"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/chatitem_fotoUsuario"
+        android:layout_toRightOf="@id/notificacaoitem_fotoUsuario"
         android:gravity="center_vertical"
         android:text="Example application"
         android:textSize="16sp"
         android:maxLines="1"/>
 
     <TextView
-        android:id="@+id/chatitem_data"
+        android:id="@+id/notificacaoitem_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/chatitem_descricao"
+        android:layout_above="@id/notificacaoitem_descricao"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"

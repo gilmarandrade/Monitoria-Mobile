@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
+
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
@@ -39,8 +40,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     public void onBindViewHolder(ChatAdapter.ChatViewHolder chatViewHolder, int i) {
         Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getFotoUsuario(), 70, 70, 200.0f, this.resources);
         chatViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
-        chatViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
-        chatViewHolder.vUltimaMensagem.setText(list.get(i).getUltimaMensagem());
+        chatViewHolder.vTitulo.setText(list.get(i).getNomeUsuario());
+        chatViewHolder.vDescricao.setText(list.get(i).getUltimaMensagem());
         chatViewHolder.vData.setText(list.get(i).getDataUltimaMensagem());
 
 
@@ -60,25 +61,23 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     public ChatAdapter.ChatViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.chat_item_layout, viewGroup, false);
 
-        return new ChatAdapter.ChatViewHolder(itemView);
+        return new  ChatAdapter.ChatViewHolder(itemView);
     }
 
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
         protected RelativeLayout vChatItem;
-        protected TextView vNomeUsuario;
         protected ImageView vFotoUsuario;
-        protected TextView vUltimaMensagem;
+        protected TextView vTitulo;
+        protected TextView vDescricao;
         protected TextView vData;
 
         public ChatViewHolder(View v) {
             super(v);
-            vNomeUsuario = (TextView) v.findViewById(R.id.chatitem_nomeUsuario);
-            vFotoUsuario = (ImageView) v.findViewById(R.id.chatitem_fotoUsuario);
-            vData = (TextView) v.findViewById(R.id.chatitem_dataCriacao);
-            vUltimaMensagem = (TextView) v.findViewById(R.id.chatitem_ultimaMensagem);
             vChatItem = (RelativeLayout) v.findViewById(R.id.chatitem_item);
-
+            vFotoUsuario = (ImageView) v.findViewById(R.id.chatitem_fotoUsuario);
+            vTitulo = (TextView) v.findViewById(R.id.chatitem_titulo);
+            vDescricao = (TextView) v.findViewById(R.id.chatitem_descricao);
+            vData = (TextView) v.findViewById(R.id.chatitem_data);
         }
     }
-
 }

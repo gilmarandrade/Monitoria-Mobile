@@ -18,7 +18,7 @@ import android.widget.Toast;
 import br.ufrn.imd.monitoria_mobile.fragment.ChatFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.DuvidasTurmaFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.MinhasDuvidasFragment;
-import br.ufrn.imd.monitoria_mobile.NotificacoesFragment;
+import br.ufrn.imd.monitoria_mobile.fragment.NotificacoesFragment;
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.RecyclerViewFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
