@@ -21,10 +21,6 @@ import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
-/**
- * Created by gilmar.andrade on 14/10/2016.
- */
-
 public class MinhasDuvidasAdapter extends RecyclerView.Adapter<MinhasDuvidasAdapter.MinhasDuvidasViewHolder> {
     private List<Duvida> list;
     Resources resources;

@@ -7,10 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-/**
- * Created by gilmar.andrade on 13/10/2016.
- */
-
+@Deprecated
 public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
     private String[] list;
 

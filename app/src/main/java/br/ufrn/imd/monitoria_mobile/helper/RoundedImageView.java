@@ -8,10 +8,6 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.widget.ImageView;
 
-/**
- * Created by gilmar.andrade on 11/10/2016.
- */
-
 public class RoundedImageView {
 
     /**

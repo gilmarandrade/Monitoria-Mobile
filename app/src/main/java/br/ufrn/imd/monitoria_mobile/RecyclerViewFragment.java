@@ -13,6 +13,7 @@ import android.view.ViewGroup;
  * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
  * {@link GridLayoutManager}.
  */
+@Deprecated
 public class RecyclerViewFragment extends Fragment {
 
     private static final int DATASET_COUNT = 10;
