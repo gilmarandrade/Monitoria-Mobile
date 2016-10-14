@@ -1,10 +1,7 @@
-package br.ufrn.imd.monitoria_mobile;
+package br.ufrn.imd.monitoria_mobile.fragment;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,6 +14,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.adapter.DuvidaSimplesAdapter;
 import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
 
 

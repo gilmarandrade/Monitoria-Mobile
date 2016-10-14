@@ -1,4 +1,4 @@
-package br.ufrn.imd.monitoria_mobile.br.ufrn.imd.monitoria_mobile.helper;
+package br.ufrn.imd.monitoria_mobile.helper;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
