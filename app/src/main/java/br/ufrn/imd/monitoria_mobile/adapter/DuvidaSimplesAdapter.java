@@ -1,7 +1,10 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -38,13 +42,14 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
 
     @Override
     public void onBindViewHolder(DuvidaSimplesAdapter.DuvidaSimplesViewHolder duvidaSimplesViewHolder, int i) {
-        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 80, 80, 200.0f, this.resources);
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.resources);
         duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         duvidaSimplesViewHolder.vDisciplina.setText(list.get(i).getDisciplina());
 
         if(list.get(i).getStatus() == DuvidaSimples.Status.FECHADA){
             duvidaSimplesViewHolder.vStatus.setText("RESOLVIDA");
+            duvidaSimplesViewHolder.vStatus.setVisibility(View.VISIBLE);
         }else{
             duvidaSimplesViewHolder.vStatus.setVisibility(View.INVISIBLE);
         }
@@ -60,6 +65,15 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
            duvidaSimplesViewHolder.vBtnCurtir.setVisibility(View.VISIBLE);
            duvidaSimplesViewHolder.vBtnDescurtir.setVisibility(View.GONE);
         }
+
+        if(list.get(i).getFoto() != -1){
+            Bitmap mBitmap = BitmapFactory.decodeResource(resources, list.get(i).getFoto());
+            duvidaSimplesViewHolder.vFoto.setImageBitmap(mBitmap);
+            duvidaSimplesViewHolder.vOptionalFoto.setVisibility(View.VISIBLE);
+        }else{
+            duvidaSimplesViewHolder.vOptionalFoto.setVisibility(View.GONE);
+        }
+
 
         duvidaSimplesViewHolder.vCard.setOnClickListener(
                 new View.OnClickListener(){
@@ -95,6 +109,8 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
         protected Button vBtnResponder;
 
         protected CardView vCard;
+        protected ImageView vFoto;
+        protected RelativeLayout vOptionalFoto;
 
 
         public DuvidaSimplesViewHolder(View v) {
@@ -113,6 +129,9 @@ public class DuvidaSimplesAdapter  extends RecyclerView.Adapter<DuvidaSimplesAda
             vBtnResponder = (Button) v.findViewById(R.id.duvidaSimples_btnResponder);
 
             vCard = (CardView) v.findViewById(R.id.duvidaSimples_card);
+            vOptionalFoto = (RelativeLayout) v.findViewById(R.id.duvidaSimples_opcionalImage);
+            vFoto = (ImageView) v.findViewById(R.id.duvidaSimples_foto);
+
         }
     }
 }

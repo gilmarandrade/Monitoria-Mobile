@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.CurtirButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorCurtir</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>
