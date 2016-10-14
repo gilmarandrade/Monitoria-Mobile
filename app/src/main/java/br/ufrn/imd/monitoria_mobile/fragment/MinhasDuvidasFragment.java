@@ -1,4 +1,4 @@
-package br.ufrn.imd.monitoria_mobile;
+package br.ufrn.imd.monitoria_mobile.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import br.ufrn.imd.monitoria_mobile.R;
 
 
 public class MinhasDuvidasFragment extends Fragment {

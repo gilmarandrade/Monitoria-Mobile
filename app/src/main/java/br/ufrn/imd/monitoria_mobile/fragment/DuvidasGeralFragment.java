@@ -25,7 +25,7 @@ public class DuvidasGeralFragment extends Fragment {
     protected DuvidaSimplesAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<DuvidaSimples> mDataset;
-
+    //necessário para o RoundedImageView gerar bitmap
     Resources resources;
 
     @Override
