@@ -19,13 +19,13 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
-import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
+import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapter.DuvidasGeralViewHolder> {
-    private List<DuvidaSimples> list;
+    private List<Duvida> list;
     Resources resources;
 
-    public DuvidasGeralAdapter(List<DuvidaSimples> dataSet) {
+    public DuvidasGeralAdapter(List<Duvida> dataSet) {
         this.list = dataSet;
     }
 
@@ -48,7 +48,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vDisciplina.setVisibility(View.VISIBLE);
         duvidaSimplesViewHolder.vData.setVisibility(View.GONE);
 
-        if(list.get(i).getStatus() == DuvidaSimples.Status.FECHADA){
+        if(list.get(i).getStatus() == Duvida.Status.FECHADA){
             duvidaSimplesViewHolder.vStatus.setText("RESOLVIDA");
             duvidaSimplesViewHolder.vStatus.setVisibility(View.VISIBLE);
         }else{

@@ -1,6 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
-public class DuvidaSimples {
+public class Duvida {
 
     private String nomeUsuario;
     private int imagemUsuario;
@@ -27,7 +27,7 @@ public class DuvidaSimples {
 
     private Status status;
 
-    public DuvidaSimples(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao) {
+    public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao) {
         this.nomeUsuario = nomeUsuario;
         this.imagemUsuario = imagemUsuario;
         this.disciplina = disciplina;

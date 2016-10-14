@@ -1,13 +1,10 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,16 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
-import br.ufrn.imd.monitoria_mobile.adapter.DuvidasGeralAdapter;
 import br.ufrn.imd.monitoria_mobile.adapter.DuvidasTurmaAdapter;
-import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
+import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasTurmaFragment extends Fragment {
     private static final int DATASET_COUNT = 10;
     protected RecyclerView mRecyclerView;
     protected DuvidasTurmaAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
-    protected List<DuvidaSimples> mDataset;
+    protected List<Duvida> mDataset;
     //necessário para o RoundedImageView gerar bitmap
     Resources resources;
 
@@ -84,7 +80,7 @@ public class DuvidasTurmaFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        mDataset = new ArrayList<DuvidaSimples>();
+        mDataset = new ArrayList<Duvida>();
 
         String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
         int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
@@ -94,11 +90,11 @@ public class DuvidasTurmaFragment extends Fragment {
         String descricoes[] = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
         int curtidas[] = {1, 5, 8, 0, 0, 4, 8, 10, 5, 8, 1, 9, 4, 5, 2, 3, 9, 0, 3, 5};
         int respostas[] = {9, 0, 3, 5, 8, 8, 0, 5, 2, 1, 0, 4, 5, 0, 1, 13, 8, 5, 9, 4};
-        DuvidaSimples.Status status[] = {DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA, DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA};
+        Duvida.Status status[] = {Duvida.Status.ABERTA , Duvida.Status.ABERTA , Duvida.Status.FECHADA, Duvida.Status.ABERTA , Duvida.Status.FECHADA};
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new DuvidaSimples(nomes[i%10], fotosUsuario[i%6], disciplinas[i%1], fotos[i%6], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5], dataCriacao[i%4] ));
+            mDataset.add(new Duvida(nomes[i%10], fotosUsuario[i%6], disciplinas[i%1], fotos[i%6], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5], dataCriacao[i%4] ));
         }
     }
 }

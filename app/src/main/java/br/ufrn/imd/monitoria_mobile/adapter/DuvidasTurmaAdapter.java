@@ -19,17 +19,17 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
-import br.ufrn.imd.monitoria_mobile.model.DuvidaSimples;
+import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 /**
  * Created by gilmar.andrade on 14/10/2016.
  */
 
 public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapter.DuvidasTurmaViewHolder>  {
-    private List<DuvidaSimples> list;
+    private List<Duvida> list;
     Resources resources;
 
-    public DuvidasTurmaAdapter(List<DuvidaSimples> dataSet) {
+    public DuvidasTurmaAdapter(List<Duvida> dataSet) {
         this.list = dataSet;
     }
 
@@ -51,7 +51,7 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         duvidasTurmaViewHolder.vDisciplina.setVisibility(View.INVISIBLE);
         duvidasTurmaViewHolder.vData.setVisibility(View.VISIBLE);
 
-        if(list.get(i).getStatus() == DuvidaSimples.Status.FECHADA){
+        if(list.get(i).getStatus() == Duvida.Status.FECHADA){
             duvidasTurmaViewHolder.vStatus.setText("RESOLVIDA");
             duvidasTurmaViewHolder.vStatus.setVisibility(View.VISIBLE);
         }else{
