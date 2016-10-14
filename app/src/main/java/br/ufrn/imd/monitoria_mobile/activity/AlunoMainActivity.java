@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import br.ufrn.imd.monitoria_mobile.ChatFragment;
+import br.ufrn.imd.monitoria_mobile.fragment.ChatFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.DuvidasTurmaFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.MinhasDuvidasFragment;
 import br.ufrn.imd.monitoria_mobile.NotificacoesFragment;
