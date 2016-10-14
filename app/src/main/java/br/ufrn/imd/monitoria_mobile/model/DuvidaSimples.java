@@ -10,6 +10,15 @@ public class DuvidaSimples {
     private int totalCurtidas;
     private int totalRespostas;
     private int foto;
+    private String dataCriacao;
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(String dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
 
     public static enum Status {
         ABERTA,
@@ -18,7 +27,7 @@ public class DuvidaSimples {
 
     private Status status;
 
-    public DuvidaSimples(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status) {
+    public DuvidaSimples(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao) {
         this.nomeUsuario = nomeUsuario;
         this.imagemUsuario = imagemUsuario;
         this.disciplina = disciplina;
@@ -28,6 +37,7 @@ public class DuvidaSimples {
         this.totalRespostas = totalRespostas;
         this.foto = foto;
         this.status = status;
+        this.dataCriacao = dataCriacao;
     }
 
     public String getNomeUsuario() {

@@ -92,9 +92,10 @@ public class MinhasDuvidasFragment extends Fragment {
         int curtidas[] = {1, 5, 8, 0, 0, 4, 8, 10, 5, 8, 1, 9, 4, 5, 2, 3, 9, 0, 3, 5};
         int respostas[] = {9, 0, 3, 5, 8, 8, 0, 5, 2, 1, 0, 4, 5, 0, 1, 13, 8, 5, 9, 4};
         DuvidaSimples.Status status[] = {DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA, DuvidaSimples.Status.ABERTA , DuvidaSimples.Status.FECHADA};
+        String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new DuvidaSimples(nomes[i%1], fotosUsuario[i%1], disciplinas[i%4], fotos[i%6], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5] ));
+            mDataset.add(new DuvidaSimples(nomes[i%1], fotosUsuario[i%1], disciplinas[i%4], fotos[i%6], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5], dataCriacao[i%4] ));
         }
     }
 }

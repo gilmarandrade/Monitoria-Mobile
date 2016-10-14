@@ -45,6 +45,8 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         duvidaSimplesViewHolder.vDisciplina.setText(list.get(i).getDisciplina());
+        duvidaSimplesViewHolder.vDisciplina.setVisibility(View.VISIBLE);
+        duvidaSimplesViewHolder.vData.setVisibility(View.GONE);
 
         if(list.get(i).getStatus() == DuvidaSimples.Status.FECHADA){
             duvidaSimplesViewHolder.vStatus.setText("RESOLVIDA");
@@ -97,6 +99,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         protected TextView vNomeUsuario;
         protected ImageView vFotoUsuario;
         protected TextView vDisciplina;
+        protected TextView vData;
         protected TextView vStatus;
         protected TextView vTitulo;
         protected TextView vDescricao;
@@ -117,6 +120,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
             vNomeUsuario = (TextView) v.findViewById(R.id.duvidaSimples_nomeUsusario);
             vFotoUsuario = (ImageView) v.findViewById(R.id.duvidaSimples_fotoUsusario);
             vDisciplina = (TextView) v.findViewById(R.id.duvidaSimples_disciplina);
+            vData = (TextView) v.findViewById(R.id.duvidaSimples_data);
             vStatus = (TextView) v.findViewById(R.id.duvidaSimples_status);
             vTitulo = (TextView) v.findViewById(R.id.duvidaSimples_titulo);
             vDescricao = (TextView) v.findViewById(R.id.duvidaSimples_descricao);
