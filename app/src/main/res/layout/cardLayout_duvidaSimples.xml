@@ -130,10 +130,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/duvidaSimples_btnCurtir"
                 android:drawableLeft="@drawable/ic_thumb_up"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_marginRight="54dp"
-                android:layout_marginEnd="54dp"
-                android:layout_weight="1" />
+                style="@style/Widget.AppCompat.Button.Borderless" />
 
             <Button
                 android:text=" descurtir"
@@ -143,9 +140,7 @@
                 android:drawableLeft="@drawable/ic_thumb_up"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:drawableTint="@color/colorWhite"
-                android:backgroundTint="@android:color/holo_blue_light"
-                android:layout_weight="1"
-                android:layout_marginBottom="25dp" />
+                android:backgroundTint="@android:color/holo_blue_light" />
 
             <Button
                 android:text=" responder"
@@ -154,8 +149,7 @@
                 android:id="@+id/duvidaSimples_btnResponder"
                 android:drawableLeft="@drawable/ic_chat"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:visibility="visible"
-                android:layout_weight="1"/>
+                android:visibility="visible"/>
 
 
         </LinearLayout>
