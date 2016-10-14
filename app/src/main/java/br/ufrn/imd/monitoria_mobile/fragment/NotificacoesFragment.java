@@ -80,10 +80,10 @@ public class NotificacoesFragment extends Fragment {
         String descricoes[] = {"respondeu sua dúvida", "aprovou sua resposta", "comentou sua dúvida", "reprovou sua resposta", "fechou sua dúvida","curtiu sua dúvida"};
         String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
         String disciplinas[] = {"DSDM", "CDI I", "FMC II", "DSW II"};
-        String datas[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
+        String datas[] = {"1 min", "2 min", "15 min", "43 min", "2 h", "1 d"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new Notificacao(fotosUsuario[i%6], titulos[i%4], nomes[i%10] + " " + descricoes[i%6], disciplinas[i%4], datas[i%4]) );
+            mDataset.add(new Notificacao(fotosUsuario[i%6], titulos[i%4], nomes[i%10] + " " + descricoes[i%6], disciplinas[i%4], datas[i%6]) );
         }
     }
 }

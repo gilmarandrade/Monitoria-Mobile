@@ -18,13 +18,13 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/user5"/>
+        android:src="@drawable/user1"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Android Studio"
+        android:text="John Connor"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:id="@+id/textView3" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/textView"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
-        android:text="@string/texto_fo_text_view"
+        android:text="4º período"
         android:layout_weight="0.02" />
 
 </LinearLayout>
