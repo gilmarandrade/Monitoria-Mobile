@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
@@ -30,6 +32,9 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
 
     private TextView vTitulo;
     private TextView vDescricao;
+
+    private TextView vQtdComentarios;
+    private TextView vQtdRespostas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,9 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vTitulo = (TextView) findViewById(R.id.detalhesduvida_titulo);
         vDescricao = (TextView) findViewById(R.id.detalhesduvida_descricao);
 
+        vQtdComentarios = (TextView) findViewById(R.id.detalhesduvida_corpo_qtdComentarios);
+        vQtdRespostas = (TextView) findViewById(R.id.detalhesduvida_qtdRespostas);
+
 
         Intent i = getIntent();
         Duvida duvida = (Duvida) i.getSerializableExtra("duvida");
@@ -87,6 +95,8 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
 
         vTitulo.setText(duvida.getTitulo());
         vDescricao.setText(duvida.getDescricao());
+
+        vQtdComentarios.setText(duvida.getComentarios().size()+" comentários");
 
 
 
