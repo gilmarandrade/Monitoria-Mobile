@@ -1,51 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_aluno_detalhes_duvida"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity"
     tools:showIn="@layout/activity_aluno_detalhes_duvida">
-
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:srcCompat="@drawable/user1"
-        android:id="@+id/detalhesduvida_fotoUsusario"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detalhesduvida_titulo"
-        android:textSize="18sp"
-        android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/detalhesduvida_fotoUsusario"
-        android:maxLines="1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/content_aluno_detalhes_duvida">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:id="@+id/detalhesduvida_cabecalho">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/user1"
+                    android:id="@+id/detalhesduvida_fotoUsusario"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detalhesduvida_nomeUsuario"
+                    android:textSize="18sp"
+                    android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/detalhesduvida_fotoUsusario"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detalhesduvida_data"
-        android:textSize="14sp"
-        android:text="23 nov 05:10"
-        android:maxLines="1"
-        android:textColor="@color/cardview_dark_background"
-        android:layout_below="@id/detalhesduvida_titulo"
-        android:layout_alignLeft="@id/detalhesduvida_titulo"
-        android:layout_alignStart="@id/detalhesduvida_titulo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detalhesduvida_data"
+                    android:textSize="14sp"
+                    android:text="23 nov 05:10"
+                    android:maxLines="1"
+                    android:textColor="@color/cardview_dark_background"
+                    android:layout_below="@id/detalhesduvida_nomeUsuario"
+                    android:layout_alignLeft="@id/detalhesduvida_nomeUsuario"
+                    android:layout_alignStart="@id/detalhesduvida_nomeUsuario"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detalhesduvida_status"
+                    android:textSize="14sp"
+                    android:text="RESOLVIDA"
+                    android:maxLines="1"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:layout_below="@+id/detalhesduvida_data"
+                    android:layout_alignLeft="@+id/detalhesduvida_data"
+                    android:layout_alignStart="@+id/detalhesduvida_data" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detalhesduvida_opcionalImage"
+                android:layout_below="@+id/detalhesduvida_cabecalho">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:srcCompat="@drawable/user1"
+                    android:id="@+id/detalhesduvida_foto"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:scaleType="centerCrop"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detalhesduvida_corpo"
+                android:padding="16dp"
+                android:layout_below="@+id/detalhesduvida_opcionalImage">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detalhesduvida_titulo"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="20sp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detalhesduvida_descricao"
+                        android:layout_below="@id/detalhesduvida_titulo"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. PORQUE Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detalhesduvida_comentarios"
+                        android:layout_below="@id/detalhesduvida_descricao"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp">
+                        <TextView
+                            android:id="@+id/detalhesduvida_corpo_qtdComentarios"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="12 comentários"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginTop="14dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/detalhesduvida_corpo_qtdComentarios"
+                            android:textSize="14sp"
+                            android:text="Eu também não consegui - Jorge 05/08 17:00"
+                            android:layout_marginTop="14dp" />
+                    </RelativeLayout>
+            </RelativeLayout>
 
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
