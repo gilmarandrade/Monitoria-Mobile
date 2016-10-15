@@ -109,7 +109,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/detalhesduvida_comentarios"
                         android:layout_below="@id/detalhesduvida_descricao"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginLeft="60dp"
                         android:layout_marginTop="20dp">
                         <TextView
                             android:id="@+id/detalhesduvida_corpo_qtdComentarios"
@@ -141,11 +141,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorGreen"
                 android:layout_below="@+id/detalhesduvida_corpo"
-                android:padding="30dp">
+                android:background="@color/colorGray">
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView_detalhesduvida_duvida"
+                    android:id="@+id/recyclerView_detalhesduvida_resposta"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </RelativeLayout>

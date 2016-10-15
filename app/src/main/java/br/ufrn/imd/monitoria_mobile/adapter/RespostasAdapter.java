@@ -3,12 +3,12 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         protected TextView vDescricao;
 
 
-        protected CardView vCard;
+        protected RelativeLayout vRespostaItem;
 
 
         public RespostasViewHolder(View v) {
@@ -69,7 +69,7 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
             vStatus = (TextView) v.findViewById(R.id.resposta_status);
             vDescricao = (TextView) v.findViewById(R.id.resposta_descricao);
 
-            vCard = (CardView) v.findViewById(R.id.resposta_card);
+            vRespostaItem = (RelativeLayout) v.findViewById(R.id.resposta_resposta);
 
         }
     }
