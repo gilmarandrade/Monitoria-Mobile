@@ -26,9 +26,6 @@ import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
 public class AlunoMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ImageView imageViewAluno1, imageViewAluno2, imageViewAluno3;
-    private ImageView nav_imageView_usuario;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,21 +129,36 @@ public class AlunoMainActivity extends AppCompatActivity
             ab.setTitle("Chat");
         } else if (id == R.id.nav_duvidas_turma1) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
+
+            Bundle args = new Bundle();
+            args.putString("disciplina", "FMC II");
+            fragment.setArguments(args);
+            ft.replace(R.id.content_aluno_main, fragment);
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
 
             ab.setTitle("FMC II");
         } else if (id == R.id.nav_duvidas_turma2) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
+
+            Bundle args = new Bundle();
+            args.putString("disciplina", "DSDM");
+            fragment.setArguments(args);
+            ft.replace(R.id.content_aluno_main, fragment);
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
 
             ab.setTitle("DSDM");
         } else if (id == R.id.nav_duvidas_turma3) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_aluno_main, new DuvidasTurmaFragment());
+            DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
+
+            Bundle args = new Bundle();
+            args.putString("disciplina", "CDI I");
+            fragment.setArguments(args);
+            ft.replace(R.id.content_aluno_main, fragment);
             //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
 

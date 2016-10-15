@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +27,21 @@ public class DuvidasTurmaFragment extends Fragment {
     protected LinearLayoutManager mLayoutManager;
     protected List<Duvida> mDataset;
 
+
+    private String disciplina;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialize dataset, this data would usually come from a local content provider or
-        // remote server.
-        initDataset();
+        if (getArguments() != null) {
+            disciplina = getArguments().getString("disciplina");
+            // Initialize dataset, this data would usually come from a local content provider or
+            // remote server.
+            initDataset(getArguments().getString("disciplina"));
+        }
+
+
     }
 
     @Override
@@ -75,12 +84,11 @@ public class DuvidasTurmaFragment extends Fragment {
      * Generates Strings for RecyclerView's adapter. This data would usually come
      * from a local content provider or remote server.
      */
-    private void initDataset() {
+    private void initDataset(String disciplina) {
         mDataset = new ArrayList<Duvida>();
 
         String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
         int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
-        String disciplinas[] = {"DSW I - Desenvolvimento de Sistemas Web I"};
         int fotos[] = {R.drawable.foto1, -1, -1, R.drawable.foto2, -1, R.drawable.foto3};
         String titulos[] = {"Socorro Alguém me ajuda!", "JavaFX Threads Atualizar UI e carregar Sistema em segundo plano", "Qual a diferença entre os métodos virtual e abstract?", "Como filtrar um Texto em uma div com angular JS", "Retorno de seleção de radiobutton em C#", "Problemas com autoload"};
         String descricoes[] = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
@@ -91,7 +99,7 @@ public class DuvidasTurmaFragment extends Fragment {
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new Duvida(nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], disciplinas[i%disciplinas.length], fotos[i%fotos.length], titulos[i%titulos.length], descricoes[i%descricoes.length], qtdCurtidas[i%qtdCurtidas.length],  qtdRespostas[i%qtdRespostas.length], status[i%status.length], dataCriacao[i%dataCriacao.length], gerarComentarios(qtdComentarios[i%qtdComentarios.length]) ));
+            mDataset.add(new Duvida(nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], disciplina, fotos[i%fotos.length], titulos[i%titulos.length], descricoes[i%descricoes.length], qtdCurtidas[i%qtdCurtidas.length],  qtdRespostas[i%qtdRespostas.length], status[i%status.length], dataCriacao[i%dataCriacao.length], gerarComentarios(qtdComentarios[i%qtdComentarios.length]) ));
         }
     }
 
