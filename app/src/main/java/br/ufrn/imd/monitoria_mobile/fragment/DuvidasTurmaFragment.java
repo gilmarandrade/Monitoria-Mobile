@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.adapter.DuvidasTurmaAdapter;
+import br.ufrn.imd.monitoria_mobile.model.Comentario;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasTurmaFragment extends Fragment {
@@ -83,13 +84,26 @@ public class DuvidasTurmaFragment extends Fragment {
         int fotos[] = {R.drawable.foto1, -1, -1, R.drawable.foto2, -1, R.drawable.foto3};
         String titulos[] = {"Socorro Alguém me ajuda!", "JavaFX Threads Atualizar UI e carregar Sistema em segundo plano", "Qual a diferença entre os métodos virtual e abstract?", "Como filtrar um Texto em uma div com angular JS", "Retorno de seleção de radiobutton em C#", "Problemas com autoload"};
         String descricoes[] = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
-        int curtidas[] = {1, 5, 8, 0, 0, 4, 8, 10, 5, 8, 1, 9, 4, 5, 2, 3, 9, 0, 3, 5};
-        int respostas[] = {9, 0, 3, 5, 8, 8, 0, 5, 2, 1, 0, 4, 5, 0, 1, 13, 8, 5, 9, 4};
+        int qtdCurtidas[] = {1, 5, 8, 0, 0, 4, 8, 10, 5, 8, 1, 9, 4, 5, 2, 3, 9, 0, 3, 5};
+        int qtdRespostas[] = {9, 0, 3, 5, 8, 8, 0, 5, 2, 1, 0, 4, 5, 0, 1, 13, 8, 5, 9, 4};
+        int qtdComentarios[] = {0, 2, 3, 0, 1, 0, 3, 1, 5, 0, 0, 0, 1, 0, 4, 6, 2, 3, 0};
         Duvida.Status status[] = {Duvida.Status.ABERTA , Duvida.Status.ABERTA , Duvida.Status.FECHADA, Duvida.Status.ABERTA , Duvida.Status.FECHADA};
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new Duvida(nomes[i%10], fotosUsuario[i%6], disciplinas[i%1], fotos[i%6], titulos[i%6], descricoes[i%3], curtidas[i%20],  respostas[i%20], status[i%5], dataCriacao[i%4] ));
+            mDataset.add(new Duvida(nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], disciplinas[i%disciplinas.length], fotos[i%fotos.length], titulos[i%titulos.length], descricoes[i%descricoes.length], qtdCurtidas[i%qtdCurtidas.length],  qtdRespostas[i%qtdRespostas.length], status[i%status.length], dataCriacao[i%dataCriacao.length], gerarComentarios(qtdComentarios[i%qtdComentarios.length]) ));
         }
+    }
+
+    private List<Comentario> gerarComentarios(int count){
+        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        String descricoes[] = {"Tô com esse problema também", "O erro informa como resolver: adicione target-Compatibility='1.7' ao buil.gradle.", "mostre como está o seu build.gradle","Já atualizei a pergunta mostrando como está meu build.gradle", "Jorge, pode me mandar o arquivo completo (para download ou escrito), por favor??", "Antes tava dando erro pra compilar no java 8, por isso mudei para o 7.", "Abra uma nova pergunta com o erro que tava dando antes, pois provavelmente não tem relação com essa pergunta/resposta.", "Ainda não amigo, continua o mesmo erro.", "Que estranho, consigo reproduzir aqui perfeitamente... São apenas estas informações que tem em seu gradle?", "Isso mesmo amigo, com a modificação sugerida já inclusa, são todas as informações do gradle."};
+        String dataCriacao[] = {"05/08 17:00", "05/08 17:31", "05/08 17:45", "05/08 17:52", "05:08 18:09", "06/08 15:02", "06/08 15:04"};
+
+        List<Comentario> comentarios = new ArrayList<Comentario>();
+        for (int i = 0; i < count; i++) {
+            comentarios.add(new Comentario(nomes[i%nomes.length], descricoes[i%descricoes.length], dataCriacao[i%dataCriacao.length]));
+        }
+        return comentarios;
     }
 }

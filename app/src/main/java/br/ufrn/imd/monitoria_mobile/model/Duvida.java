@@ -1,5 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
+import java.util.List;
+
 public class Duvida {
 
     private String nomeUsuario;
@@ -11,14 +13,7 @@ public class Duvida {
     private int totalRespostas;
     private int foto;
     private String dataCriacao;
-
-    public String getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(String dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
+    private List<Comentario> comentarios;
 
     public static enum Status {
         ABERTA,
@@ -27,7 +22,7 @@ public class Duvida {
 
     private Status status;
 
-    public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao) {
+    public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao, List<Comentario> comentarios) {
         this.nomeUsuario = nomeUsuario;
         this.imagemUsuario = imagemUsuario;
         this.disciplina = disciplina;
@@ -38,6 +33,7 @@ public class Duvida {
         this.foto = foto;
         this.status = status;
         this.dataCriacao = dataCriacao;
+        this.comentarios = comentarios;
     }
 
     public String getNomeUsuario() {
@@ -107,4 +103,20 @@ public class Duvida {
     public int getFoto() { return foto; }
 
     public void setFoto(int foto) { this.foto = foto; }
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(String dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 }
