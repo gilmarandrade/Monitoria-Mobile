@@ -112,6 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/duvidaSimples_descricao"
+                android:maxLines="10"
+                android:ellipsize="marquee"
                 android:textSize="14sp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
                 android:layout_below="@+id/duvidaSimples_titulo"

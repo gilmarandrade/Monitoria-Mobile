@@ -94,7 +94,7 @@ public class DuvidasGeralFragment extends Fragment {
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add(new Duvida(nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], disciplinas[i%disciplinas.length], fotos[i%fotos.length], titulos[i%titulos.length], descricoes[i%descricoes.length], qtdCurtidas[i%qtdCurtidas.length], status[i%status.length], dataCriacao[i%dataCriacao.length], gerarComentarios(qtdComentarios[i%qtdComentarios.length]), gerarRespostas(qtdRespostas[i%qtdRespostas.length]) ));
+            mDataset.add(new Duvida(nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], disciplinas[i%disciplinas.length], fotos[i%fotos.length], titulos[i%titulos.length], descricoes[i%descricoes.length], qtdCurtidas[i%qtdCurtidas.length], status[i%status.length], dataCriacao[i%dataCriacao.length], gerarComentarios(qtdComentarios[i%qtdComentarios.length]), gerarRespostas(qtdRespostas[i%qtdRespostas.length], status[i%status.length]) ));
         }
     }
 
@@ -110,7 +110,7 @@ public class DuvidasGeralFragment extends Fragment {
         return comentarios;
     }
 
-    private List<Resposta> gerarRespostas(int count){
+    private List<Resposta> gerarRespostas(int count,  Duvida.Status statusDuvida){
         String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
         int fotosUsuario[] = {R.drawable.user4, R.drawable.user2, R.drawable.user5, R.drawable.user1, R.drawable.user3, R.drawable.user6};
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
@@ -119,12 +119,13 @@ public class DuvidasGeralFragment extends Fragment {
                 "Enquanto ambas as soluções parecem ser aceitáveis, a segunda inclui uma dependência externa (implícita) ao IDE. Dessa forma, a primeira solução me parece a mais adequada. Sobre as versões das APIs utilizadas pelo Wildfly, eu não me preocuparia muito com isso. Na verdade, para os serviços do Java EE você geralmente só precisa depender das interfaces / APIs. Em muitos projetos uma simples dependência para javaee-api é suficiente.",
                 "Para evitar problemas com diferenças de versões entre algumas APIs presentes simultaneamente na JVM (Java SE) e no seu servidor de aplicação (Java EE) é interessante também configurar a Java EE Endorsed Api. Para mais informações sobre como fazer isso no gradle veja essa postagem. "};
         Resposta.Status status[] = {Resposta.Status.APROVADA, Resposta.Status.AGUARDANDO, Resposta.Status.REPROVADA, Resposta.Status.APROVADA, Resposta.Status.AGUARDANDO, Resposta.Status.AGUARDANDO};
-        boolean melhorResposta = false;
+
         List<Resposta> respostas = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            if(i==0) melhorResposta= true;
-            respostas.add(new Resposta( nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], dataCriacao[i%dataCriacao.length], descricao[i%descricao.length], status[i%status.length], melhorResposta, new ArrayList<Comentario>()));
-            melhorResposta = false;
+            respostas.add(new Resposta( nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], dataCriacao[i%dataCriacao.length], descricao[i%descricao.length], status[i%status.length], false, new ArrayList<Comentario>()));
+        }
+        if (statusDuvida == Duvida.Status.FECHADA){
+          respostas.get(0).setMelhorResposta(true);
         }
 
         return respostas;

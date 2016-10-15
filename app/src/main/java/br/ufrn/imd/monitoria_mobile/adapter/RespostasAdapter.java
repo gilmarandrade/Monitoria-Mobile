@@ -2,6 +2,7 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,8 +40,22 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         respostasViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         respostasViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         respostasViewHolder.vData.setText(list.get(i).getData());
+        if(list.get(i).getStatus() == Resposta.Status.REPROVADA){
+            respostasViewHolder.vStatus.setTextColor(Color.rgb(229, 57,53));
+        }else if(list.get(i).getStatus() == Resposta.Status.APROVADA){
+            respostasViewHolder.vStatus.setTextColor(Color.rgb(67, 160,61));
+        }else{
+            respostasViewHolder.vStatus.setTextColor(Color.rgb(153, 153, 153));
+        }
         respostasViewHolder.vStatus.setText(list.get(i).getStatus().toString());
         respostasViewHolder.vDescricao.setText(list.get(i).getDescricao());
+
+        if(list.get(i).isMelhorResposta()){
+            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(220,237, 200));
+            respostasViewHolder.vStatus.setText("MELHOR RESPOSTA");
+        }else{
+            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(255,255, 255));
+        }
     }
 
     @Override
