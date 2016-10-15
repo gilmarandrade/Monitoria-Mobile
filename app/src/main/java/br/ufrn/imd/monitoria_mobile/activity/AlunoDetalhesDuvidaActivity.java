@@ -1,7 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,19 +8,24 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.adapter.RespostasAdapter;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
+import br.ufrn.imd.monitoria_mobile.model.Resposta;
 
 public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
+
     private TextView vNomeUsuario;
     private ImageView vFotoUsuario;
     private TextView vDataCriacao;
@@ -35,6 +39,13 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
 
     private TextView vQtdComentarios;
     private TextView vQtdRespostas;
+
+
+    private static final int DATASET_COUNT = 10;
+    protected RecyclerView mRecyclerView;
+    protected RespostasAdapter mAdapter;
+    protected LinearLayoutManager mLayoutManager;
+    protected List<Resposta> mDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +80,7 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vQtdRespostas = (TextView) findViewById(R.id.detalhesduvida_qtdRespostas);
 
 
+
         Intent i = getIntent();
         Duvida duvida = (Duvida) i.getSerializableExtra("duvida");
 
@@ -97,9 +109,36 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vDescricao.setText(duvida.getDescricao());
 
         vQtdComentarios.setText(duvida.getComentarios().size()+" comentários");
+        vQtdRespostas.setText(duvida.getRespostas().size()+" respostas");
+
+        // Initialize dataset, this data would usually come from a local content provider or
+        // remote server.
+        initDataset(duvida.getRespostas());
 
 
 
+        /**
+         * recycleview de respostas para a duvida
+         * */
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_detalhesduvida_duvida);
+        mRecyclerView.setHasFixedSize(true);
+        // LinearLayoutManager is used here, this will layout the elements in a similar fashion
+        // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
+        // elements are laid out.
+        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
+        // Set CustomAdapter as the adapter for RecyclerView.
+        mAdapter = new RespostasAdapter(mDataset, this.getApplicationContext());
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    /**
+     * Generates Strings for RecyclerView's adapter. This data would usually come
+     * from a local content provider or remote server.
+     */
+    private void initDataset(List<Resposta> respostas) {
+        mDataset = respostas;
     }
 }

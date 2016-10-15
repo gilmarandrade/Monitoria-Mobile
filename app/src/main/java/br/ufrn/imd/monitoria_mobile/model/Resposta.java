@@ -31,4 +31,60 @@ public class Resposta implements Serializable {
         this.melhorResposta = melhorResposta;
         this.comentarios = comentarios;
     }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public int getFotoUsuario() {
+        return fotoUsuario;
+    }
+
+    public void setFotoUsuario(int fotoUsuario) {
+        this.fotoUsuario = fotoUsuario;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Resposta.Status getStatus() {
+        return Status;
+    }
+
+    public void setStatus(Resposta.Status status) {
+        Status = status;
+    }
+
+    public boolean isMelhorResposta() {
+        return melhorResposta;
+    }
+
+    public void setMelhorResposta(boolean melhorResposta) {
+        this.melhorResposta = melhorResposta;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 }
