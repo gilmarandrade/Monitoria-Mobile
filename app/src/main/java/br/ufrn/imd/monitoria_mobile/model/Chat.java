@@ -9,6 +9,9 @@ public class Chat implements Serializable{
     private String ultimaMensagem;
     private String dataUltimaMensagem;
 
+    public Chat() {
+    }
+
     public Chat(String nomeUsuario, int fotoUsuario, String ultimaMensagem, String dataUltimaMensagem) {
         this.nomeUsuario = nomeUsuario;
         this.fotoUsuario = fotoUsuario;

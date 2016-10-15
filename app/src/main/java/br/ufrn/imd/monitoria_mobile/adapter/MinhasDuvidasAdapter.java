@@ -56,7 +56,7 @@ public class MinhasDuvidasAdapter extends RecyclerView.Adapter<MinhasDuvidasAdap
         minhasDuvidasViewHolder.vTitulo.setText(list.get(i).getTitulo());
         minhasDuvidasViewHolder.vDescricao.setText(list.get(i).getDescricao());
         minhasDuvidasViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
-        minhasDuvidasViewHolder.vRespostas.setText(list.get(i).getTotalRespostas() + " respostas");
+        minhasDuvidasViewHolder.vRespostas.setText(list.get(i).getRespostas().size() + " respostas");
 
         if(list.get(i).getTotalCurtidas() >=5){
             minhasDuvidasViewHolder.vBtnCurtir.setVisibility(View.GONE);
