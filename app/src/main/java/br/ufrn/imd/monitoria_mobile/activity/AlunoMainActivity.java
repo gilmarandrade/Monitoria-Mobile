@@ -47,27 +47,6 @@ public class AlunoMainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-/*
-        imageViewAluno1 = (ImageView) findViewById(R.id.imageViewAluno1);
-        imageViewAluno2 = (ImageView) findViewById(R.id.imageViewAluno2);
-        imageViewAluno3 = (ImageView) findViewById(R.id.imageViewAluno3);
-
-       Drawable roundedImage1 = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
-        imageViewAluno1.setImageDrawable(roundedImage1);
-        Drawable roundedImage2 = RoundedImageView.getRoundedImageView(R.drawable.user5, 200.0f, getResources());
-        imageViewAluno2.setImageDrawable(roundedImage2);
-        Drawable roundedImage3 = RoundedImageView.getRoundedImageView(R.drawable.user2, 200.0f, getResources());
-        imageViewAluno3.setImageDrawable(roundedImage3);
-*/
-  /*      nav_imageView_usuario = (ImageView) findViewById(R.id.nav_imageView_usuario);
-        Drawable roundedImage_usuario = RoundedImageView.getRoundedImageView(R.drawable.user3, 200.0f, getResources());
-        nav_imageView_usuario.setImageDrawable(roundedImage_usuario);
-
-        nav_imageView_usuario = (ImageView) findViewById(R.id.nav_imageView_usuario);
-        Bitmap  mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.user3);
-        nav_imageView_usuario.setImageBitmap(mBitmap);
-       */
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
         ft.commit();

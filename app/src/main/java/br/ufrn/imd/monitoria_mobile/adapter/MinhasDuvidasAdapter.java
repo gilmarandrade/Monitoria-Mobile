@@ -1,6 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
@@ -79,8 +81,9 @@ public class MinhasDuvidasAdapter extends RecyclerView.Adapter<MinhasDuvidasAdap
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
+                        Intent i = new Intent(context.getApplicationContext(), AlunoDetalhesDuvidaActivity.class);
+                        context.startActivity(i);
+                        //Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     }
                 }
         );
