@@ -1,6 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
@@ -20,16 +21,13 @@ import br.ufrn.imd.monitoria_mobile.model.Chat;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
     private List<Chat> list;
-    Resources resources;
+    private Context context;
 
-    public ChatAdapter(List<Chat> dataSet) {
+    public ChatAdapter(List<Chat> dataSet, Context context) {
         this.list = dataSet;
+        this.context = context;
     }
 
-
-    public void setResources(Resources resources) {
-        this.resources = resources;
-    }
 
     @Override
     public int getItemCount() {
@@ -38,7 +36,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
     @Override
     public void onBindViewHolder(ChatAdapter.ChatViewHolder chatViewHolder, int i) {
-        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getFotoUsuario(), 70, 70, 200.0f, this.resources);
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getFotoUsuario(), 70, 70, 200.0f, this.context.getResources());
         chatViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         chatViewHolder.vTitulo.setText(list.get(i).getNomeUsuario());
         chatViewHolder.vDescricao.setText(list.get(i).getUltimaMensagem());

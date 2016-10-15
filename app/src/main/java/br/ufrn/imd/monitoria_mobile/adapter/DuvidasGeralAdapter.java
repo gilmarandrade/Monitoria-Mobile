@@ -1,5 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,20 +20,19 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
+import br.ufrn.imd.monitoria_mobile.activity.AlunoMainActivity;
+import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapter.DuvidasGeralViewHolder> {
     private List<Duvida> list;
-    Resources resources;
+    private Context context;
 
-    public DuvidasGeralAdapter(List<Duvida> dataSet) {
+    public DuvidasGeralAdapter(List<Duvida> dataSet, Context context) {
         this.list = dataSet;
-    }
-
-
-    public void setResources(Resources resources) {
-        this.resources = resources;
+        this.context = context;
     }
 
     @Override
@@ -41,7 +42,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
 
     @Override
     public void onBindViewHolder(DuvidasGeralViewHolder duvidaSimplesViewHolder, int i) {
-        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.resources);
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.context.getResources());
         duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         duvidaSimplesViewHolder.vDisciplina.setText(list.get(i).getDisciplina());
@@ -68,7 +69,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         }
 
         if(list.get(i).getFoto() != -1){
-            Bitmap mBitmap = BitmapFactory.decodeResource(resources, list.get(i).getFoto());
+            Bitmap mBitmap = BitmapFactory.decodeResource(this.context.getResources(), list.get(i).getFoto());
             duvidaSimplesViewHolder.vFoto.setImageBitmap(mBitmap);
             duvidaSimplesViewHolder.vOptionalFoto.setVisibility(View.VISIBLE);
         }else{
@@ -80,8 +81,9 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
+                       Intent i = new Intent(context.getApplicationContext(), AlunoDetalhesDuvidaActivity.class);
+                        context.startActivity(i);
+                       // Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     }
                 }
         );

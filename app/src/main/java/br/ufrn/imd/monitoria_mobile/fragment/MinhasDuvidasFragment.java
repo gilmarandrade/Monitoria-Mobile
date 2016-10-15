@@ -25,8 +25,6 @@ public class MinhasDuvidasFragment extends Fragment {
     protected MinhasDuvidasAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Duvida> mDataset;
-    //necessário para o RoundedImageView gerar bitmap
-    Resources resources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +33,6 @@ public class MinhasDuvidasFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
-
-        resources =  getActivity().getResources();
     }
 
     @Override
@@ -68,8 +64,7 @@ public class MinhasDuvidasFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new MinhasDuvidasAdapter(mDataset);
-        mAdapter.setResources(resources);
+        mAdapter = new MinhasDuvidasAdapter(mDataset, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
 

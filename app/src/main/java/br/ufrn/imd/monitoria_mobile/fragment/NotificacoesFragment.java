@@ -22,8 +22,6 @@ public class NotificacoesFragment extends Fragment {
     protected NotificacaoAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Notificacao> mDataset;
-    //necessário para o RoundedImageView gerar bitmap
-    Resources resources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +30,6 @@ public class NotificacoesFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
-
-        resources =  getActivity().getResources();
     }
 
 
@@ -56,8 +52,7 @@ public class NotificacoesFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new NotificacaoAdapter(mDataset);
-        mAdapter.setResources(resources);
+        mAdapter = new NotificacaoAdapter(mDataset, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
 

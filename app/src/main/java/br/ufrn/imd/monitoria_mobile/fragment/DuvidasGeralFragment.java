@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -25,8 +26,6 @@ public class DuvidasGeralFragment extends Fragment {
     protected DuvidasGeralAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Duvida> mDataset;
-    //necessário para o RoundedImageView gerar bitmap
-    Resources resources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +34,6 @@ public class DuvidasGeralFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
-
-        resources =  getActivity().getResources();
     }
 
     @Override
@@ -69,8 +66,7 @@ public class DuvidasGeralFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new DuvidasGeralAdapter(mDataset);
-        mAdapter.setResources(resources);
+        mAdapter = new DuvidasGeralAdapter(mDataset, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;

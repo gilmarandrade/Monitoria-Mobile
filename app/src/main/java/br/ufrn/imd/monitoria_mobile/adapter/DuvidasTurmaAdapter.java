@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,14 +24,11 @@ import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapter.DuvidasTurmaViewHolder>  {
     private List<Duvida> list;
-    Resources resources;
+    private Context context;
 
-    public DuvidasTurmaAdapter(List<Duvida> dataSet) {
+    public DuvidasTurmaAdapter(List<Duvida> dataSet, Context context) {
         this.list = dataSet;
-    }
-
-    public void setResources(Resources resources) {
-        this.resources = resources;
+        this.context = context;
     }
 
     @Override
@@ -40,7 +38,7 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
 
     @Override
     public void onBindViewHolder(DuvidasTurmaAdapter.DuvidasTurmaViewHolder duvidasTurmaViewHolder, int i) {
-        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.resources);
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.context.getResources());
         duvidasTurmaViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidasTurmaViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         duvidasTurmaViewHolder.vData.setText(list.get(i).getDataCriacao());
@@ -67,7 +65,7 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         }
 
         if(list.get(i).getFoto() != -1){
-            Bitmap mBitmap = BitmapFactory.decodeResource(resources, list.get(i).getFoto());
+            Bitmap mBitmap = BitmapFactory.decodeResource(this.context.getResources(), list.get(i).getFoto());
             duvidasTurmaViewHolder.vFoto.setImageBitmap(mBitmap);
             duvidasTurmaViewHolder.vOptionalFoto.setVisibility(View.VISIBLE);
         }else{

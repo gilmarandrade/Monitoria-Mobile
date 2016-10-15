@@ -24,8 +24,6 @@ public class DuvidasTurmaFragment extends Fragment {
     protected DuvidasTurmaAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Duvida> mDataset;
-    //necessário para o RoundedImageView gerar bitmap
-    Resources resources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +32,6 @@ public class DuvidasTurmaFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
-
-        resources =  getActivity().getResources();
     }
 
     @Override
@@ -68,8 +64,7 @@ public class DuvidasTurmaFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new DuvidasTurmaAdapter(mDataset);
-        mAdapter.setResources(resources);
+        mAdapter = new DuvidasTurmaAdapter(mDataset, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;

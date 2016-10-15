@@ -1,6 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.adapter;
 
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
@@ -20,15 +21,11 @@ import br.ufrn.imd.monitoria_mobile.model.Notificacao;
 
 public class NotificacaoAdapter  extends RecyclerView.Adapter<NotificacaoAdapter.NotificacaoViewHolder> {
     private List<Notificacao> list;
-    Resources resources;
+    private Context context;
 
-    public NotificacaoAdapter(List<Notificacao> dataSet) {
+    public NotificacaoAdapter(List<Notificacao> dataSet, Context context) {
         this.list = dataSet;
-    }
-
-
-    public void setResources(Resources resources) {
-        this.resources = resources;
+        this.context = context;
     }
 
     @Override
@@ -38,7 +35,7 @@ public class NotificacaoAdapter  extends RecyclerView.Adapter<NotificacaoAdapter
 
     @Override
     public void onBindViewHolder(NotificacaoAdapter.NotificacaoViewHolder notificacaoViewHolder, int i) {
-        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getFotoUsuario(), 70, 70, 200.0f, this.resources);
+        Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getFotoUsuario(), 70, 70, 200.0f, this.context.getResources());
         notificacaoViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         notificacaoViewHolder.vTitulo.setText(list.get(i).getTitulo());
         notificacaoViewHolder.vDescricao.setText(list.get(i).getDescricao());

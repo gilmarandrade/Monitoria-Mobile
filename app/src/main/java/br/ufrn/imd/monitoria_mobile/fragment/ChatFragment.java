@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,8 +25,6 @@ public class ChatFragment extends Fragment {
     protected ChatAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Chat> mDataset;
-    //necessário para o RoundedImageView gerar bitmap
-    Resources resources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,6 @@ public class ChatFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
-
-        resources =  getActivity().getResources();
     }
 
     @Override
@@ -67,8 +64,7 @@ public class ChatFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Set CustomAdapter as the adapter for RecyclerView.
-        mAdapter = new ChatAdapter(mDataset);
-        mAdapter.setResources(resources);
+        mAdapter = new ChatAdapter(mDataset, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
 
