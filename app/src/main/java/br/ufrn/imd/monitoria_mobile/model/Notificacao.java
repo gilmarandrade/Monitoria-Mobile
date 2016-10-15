@@ -1,7 +1,9 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
 
-public class Notificacao {
+import java.io.Serializable;
+
+public class Notificacao implements Serializable{
     private int fotoUsuario;
     private String titulo;
     private String descricao;

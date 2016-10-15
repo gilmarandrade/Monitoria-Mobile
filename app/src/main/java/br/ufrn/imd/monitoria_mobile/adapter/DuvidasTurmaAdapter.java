@@ -74,12 +74,13 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
             duvidasTurmaViewHolder.vOptionalFoto.setVisibility(View.GONE);
         }
 
-
+        final Duvida d = list.get(i);
         duvidasTurmaViewHolder.vCard.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
                         Intent i = new Intent(context.getApplicationContext(), AlunoDetalhesDuvidaActivity.class);
+                        i.putExtra("duvida", d);
                         context.startActivity(i);
                         // Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     }

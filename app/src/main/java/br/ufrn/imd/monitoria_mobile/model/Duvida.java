@@ -1,8 +1,9 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Duvida {
+public class Duvida implements Serializable{
 
     private String nomeUsuario;
     private int imagemUsuario;
@@ -21,6 +22,9 @@ public class Duvida {
     }
 
     private Status status;
+
+    public Duvida() {
+    }
 
     public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao, List<Comentario> comentarios) {
         this.nomeUsuario = nomeUsuario;
