@@ -1,10 +1,8 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.activity.AddDuvida;
 import br.ufrn.imd.monitoria_mobile.adapter.DuvidasGeralAdapter;
 import br.ufrn.imd.monitoria_mobile.model.Comentario;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
@@ -47,8 +46,9 @@ public class DuvidasGeralFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Adicionar Dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent i = new Intent(getActivity(), AddDuvida.class);
+                startActivity(i);
             }
         });
 
