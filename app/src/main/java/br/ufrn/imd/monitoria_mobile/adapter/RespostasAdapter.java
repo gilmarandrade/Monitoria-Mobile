@@ -66,6 +66,8 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
             respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(255,255, 255));
         }
 
+        respostasViewHolder.vQtdComentarios.setText(list.get(i).getComentarios().size() + " comentários");
+
 
 
         // Initialize dataset, this data would usually come from a local content provider or
@@ -102,7 +104,7 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         protected TextView vData;
         protected TextView vStatus;
         protected TextView vDescricao;
-
+        protected TextView vQtdComentarios;
 
         protected RelativeLayout vRespostaItem;
 
@@ -116,6 +118,7 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
             vData = (TextView) v.findViewById(R.id.resposta_data);
             vStatus = (TextView) v.findViewById(R.id.resposta_status);
             vDescricao = (TextView) v.findViewById(R.id.resposta_descricao);
+            vQtdComentarios = (TextView) v.findViewById(R.id.resposta_qtdComentarios);
 
             vRespostaItem = (RelativeLayout) v.findViewById(R.id.resposta_resposta);
 

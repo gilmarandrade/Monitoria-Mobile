@@ -87,9 +87,27 @@
             android:paddingLeft="80dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resposta_qtdComentarios"
+                android:textSize="14sp"
+                android:text="# comentarios"/>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_resposta_comentarios"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_below="@id/resposta_qtdComentarios"/>
+
+            <Button
+                android:text="comentar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerView_resposta_comentarios"
+                android:layout_alignParentRight="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:id="@+id/resposta_btnAddComentario"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:textColor="@color/colorAccent"/>
         </RelativeLayout>
     </RelativeLayout>

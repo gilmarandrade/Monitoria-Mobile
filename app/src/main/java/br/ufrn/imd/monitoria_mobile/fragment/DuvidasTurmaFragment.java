@@ -125,10 +125,11 @@ public class DuvidasTurmaFragment extends Fragment {
                 "Enquanto ambas as soluções parecem ser aceitáveis, a segunda inclui uma dependência externa (implícita) ao IDE. Dessa forma, a primeira solução me parece a mais adequada. Sobre as versões das APIs utilizadas pelo Wildfly, eu não me preocuparia muito com isso. Na verdade, para os serviços do Java EE você geralmente só precisa depender das interfaces / APIs. Em muitos projetos uma simples dependência para javaee-api é suficiente.",
                 "Para evitar problemas com diferenças de versões entre algumas APIs presentes simultaneamente na JVM (Java SE) e no seu servidor de aplicação (Java EE) é interessante também configurar a Java EE Endorsed Api. Para mais informações sobre como fazer isso no gradle veja essa postagem. "};
         Resposta.Status status[] = {Resposta.Status.APROVADA, Resposta.Status.AGUARDANDO, Resposta.Status.REPROVADA, Resposta.Status.APROVADA, Resposta.Status.AGUARDANDO, Resposta.Status.AGUARDANDO};
+        int qtdComentarios[] = {1, 2, 3, 0, 1, 0, 3, 1, 5, 0, 0, 0, 1, 0, 4, 6, 2, 3, 0};
 
         List<Resposta> respostas = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            respostas.add(new Resposta( nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], dataCriacao[i%dataCriacao.length], descricao[i%descricao.length], status[i%status.length], false, new ArrayList<Comentario>()));
+            respostas.add(new Resposta( nomes[i%nomes.length], fotosUsuario[i%fotosUsuario.length], dataCriacao[i%dataCriacao.length], descricao[i%descricao.length], status[i%status.length], false, gerarComentarios(qtdComentarios[i%qtdComentarios.length])));
         }
         if (statusDuvida == Duvida.Status.FECHADA){
             respostas.get(0).setMelhorResposta(true);
