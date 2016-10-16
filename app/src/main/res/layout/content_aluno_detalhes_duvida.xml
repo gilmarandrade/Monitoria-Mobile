@@ -110,24 +110,31 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/detalhesduvida_comentarios"
                         android:layout_below="@id/detalhesduvida_descricao"
-                        android:layout_marginLeft="60dp"
-                        android:layout_marginTop="20dp">
+                        android:paddingLeft="80dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="10dp">
                         <TextView
-                            android:id="@+id/detalhesduvida_corpo_qtdComentarios"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/detalhesduvida_qtdComentarios"
+                            android:textSize="14sp"
+                            android:text="# comentarios"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView_detalhesduvida_comentarios"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:text="-1 comentários"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="14dp" />
-                        <TextView
-                            android:layout_width="match_parent"
+                            android:layout_below="@id/resposta_qtdComentarios"/>
+                        <Button
+                            android:text="comentar"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/detalhesduvida_corpo_qtdComentarios"
-                            android:textSize="14sp"
-                            android:text="Eu também não consegui - Jorge 05/08 17:00"
-                            android:layout_marginTop="14dp" />
+                            android:layout_below="@id/recyclerView_detalhesduvida_comentarios"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignWithParentIfMissing="true"
+                            android:id="@+id/detalhesduvida_btnAddComentario"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:textColor="@color/colorAccent"/>
                     </RelativeLayout>
                     <TextView
                         android:layout_width="match_parent"
