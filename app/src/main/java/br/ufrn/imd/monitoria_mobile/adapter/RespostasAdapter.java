@@ -4,6 +4,7 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +17,20 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
+import br.ufrn.imd.monitoria_mobile.model.Comentario;
 import br.ufrn.imd.monitoria_mobile.model.Resposta;
 
 public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.RespostasViewHolder>{
 
     private List<Resposta> list;
     private Context context;
+
+
+    private static final int DATASET_COUNT = 10;
+    protected RecyclerView mRecyclerView;
+    protected ComentariosAdapter mAdapter;
+    protected LinearLayoutManager mLayoutManager;
+    protected List<Comentario> mDataset;
 
     public RespostasAdapter(List<Resposta> dataSet, Context context) {
         this.list = dataSet;
@@ -56,6 +65,28 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         }else{
             respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(255,255, 255));
         }
+
+
+
+        // Initialize dataset, this data would usually come from a local content provider or
+        // remote server.
+        initDataset(list.get(i).getComentarios());
+
+        /**
+         * recycleview de comentarios da resposta
+         * */
+        mRecyclerView = (RecyclerView) respostasViewHolder.viewRoot.findViewById(R.id.recyclerView_resposta_comentarios);
+        mRecyclerView.setHasFixedSize(true);
+        // LinearLayoutManager is used here, this will layout the elements in a similar fashion
+        // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
+        // elements are laid out.
+        mLayoutManager = new LinearLayoutManager(this.context);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // Set CustomAdapter as the adapter for RecyclerView.
+        mAdapter = new ComentariosAdapter(mDataset, this.context.getApplicationContext());
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -75,6 +106,8 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
 
         protected RelativeLayout vRespostaItem;
 
+        protected View viewRoot;
+
 
         public RespostasViewHolder(View v) {
             super(v);
@@ -86,7 +119,18 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
 
             vRespostaItem = (RelativeLayout) v.findViewById(R.id.resposta_resposta);
 
+            viewRoot = v;
+
         }
+    }
+
+
+    /**
+     * Generates Strings for RecyclerView's adapter. This data would usually come
+     * from a local content provider or remote server.
+     */
+    private void initDataset(List<Comentario> comentarios) {
+        mDataset = comentarios;
     }
 
 }

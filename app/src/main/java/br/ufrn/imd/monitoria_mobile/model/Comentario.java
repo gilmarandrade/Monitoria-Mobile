@@ -10,7 +10,7 @@ public class Comentario implements Serializable{
     public Comentario() {
     }
 
-    public Comentario(String descricao, String nomeUsuario, String dataCriacao) {
+    public Comentario(String nomeUsuario, String descricao, String dataCriacao) {
         this.descricao = descricao;
         this.nomeUsuario = nomeUsuario;
         this.dataCriacao = dataCriacao;
