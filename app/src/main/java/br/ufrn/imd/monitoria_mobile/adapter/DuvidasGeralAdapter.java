@@ -58,7 +58,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vTitulo.setText(list.get(i).getTitulo());
         duvidaSimplesViewHolder.vDescricao.setText(list.get(i).getDescricao());
         duvidaSimplesViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
-        duvidaSimplesViewHolder.vRespostas.setText(list.get(i).getTotalRespostas() + " respostas");
+        duvidaSimplesViewHolder.vRespostas.setText(list.get(i).getRespostas().size() + " respostas");
 
         if(list.get(i).getTotalCurtidas() >=5){
             duvidaSimplesViewHolder.vBtnCurtir.setVisibility(View.GONE);

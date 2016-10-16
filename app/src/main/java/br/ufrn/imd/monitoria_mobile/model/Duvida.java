@@ -2,6 +2,7 @@ package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class Duvida implements Serializable{
 
@@ -11,10 +12,10 @@ public class Duvida implements Serializable{
     private String titulo;
     private String descricao;
     private int totalCurtidas;
-    private int totalRespostas;
     private int foto;
     private String dataCriacao;
     private List<Comentario> comentarios;
+    private List<Resposta> respostas;
 
     public static enum Status {
         ABERTA,
@@ -26,18 +27,18 @@ public class Duvida implements Serializable{
     public Duvida() {
     }
 
-    public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, int totalRespostas, Status status, String dataCriacao, List<Comentario> comentarios) {
+    public Duvida(String nomeUsuario, int imagemUsuario, String disciplina, int foto, String titulo, String descricao, int totalCurtidas, Status status, String dataCriacao, List<Comentario> comentarios, List<Resposta> respostas) {
         this.nomeUsuario = nomeUsuario;
         this.imagemUsuario = imagemUsuario;
         this.disciplina = disciplina;
         this.titulo = titulo;
         this.descricao = descricao;
         this.totalCurtidas = totalCurtidas;
-        this.totalRespostas = totalRespostas;
         this.foto = foto;
         this.status = status;
         this.dataCriacao = dataCriacao;
         this.comentarios = comentarios;
+        this.respostas = respostas;
     }
 
     public String getNomeUsuario() {
@@ -88,14 +89,6 @@ public class Duvida implements Serializable{
         this.totalCurtidas = totalCurtidas;
     }
 
-    public int getTotalRespostas() {
-        return totalRespostas;
-    }
-
-    public void setTotalRespostas(int totalRespostas) {
-        this.totalRespostas = totalRespostas;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -123,4 +116,8 @@ public class Duvida implements Serializable{
     public void setComentarios(List<Comentario> comentarios) {
         this.comentarios = comentarios;
     }
+
+    public List<Resposta> getRespostas() {return respostas;}
+
+    public void setRespostas(List<Resposta> respostas) {this.respostas = respostas;}
 }

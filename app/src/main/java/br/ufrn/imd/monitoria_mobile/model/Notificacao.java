@@ -10,6 +10,9 @@ public class Notificacao implements Serializable{
     private String data;
     private String disciplina;
 
+    public Notificacao() {
+    }
+
     public Notificacao(int fotoUsuario, String titulo, String descricao, String disciplina, String data) {
         this.fotoUsuario = fotoUsuario;
         this.titulo = titulo;

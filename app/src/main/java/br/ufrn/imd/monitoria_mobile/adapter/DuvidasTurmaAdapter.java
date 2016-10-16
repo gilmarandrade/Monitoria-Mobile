@@ -56,7 +56,7 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         duvidasTurmaViewHolder.vTitulo.setText(list.get(i).getTitulo());
         duvidasTurmaViewHolder.vDescricao.setText(list.get(i).getDescricao());
         duvidasTurmaViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
-        duvidasTurmaViewHolder.vRespostas.setText(list.get(i).getTotalRespostas() + " respostas");
+        duvidasTurmaViewHolder.vRespostas.setText(list.get(i).getRespostas().size() + " respostas");
 
         if(list.get(i).getTotalCurtidas() >=5){
             duvidasTurmaViewHolder.vBtnCurtir.setVisibility(View.GONE);
