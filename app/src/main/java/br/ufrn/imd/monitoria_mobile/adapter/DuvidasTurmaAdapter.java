@@ -21,6 +21,7 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
+import br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
@@ -75,6 +76,7 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         }
 
         final Duvida d = list.get(i);
+
         duvidasTurmaViewHolder.vCard.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
@@ -86,6 +88,15 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
                     }
                 }
         );
+
+        duvidasTurmaViewHolder.vBtnResponder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context.getApplicationContext(), ResponderDuvida.class);
+                i.putExtra("duvida", d);
+                context.startActivity(i);
+            }
+        });
 
     }
 

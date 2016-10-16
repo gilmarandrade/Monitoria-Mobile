@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="br.ufrn.imd.monitoria_mobile.activity.AddDuvida">
+    tools:context="br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:weightSum="1">
+        android:weightSum="0">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="0">
+            android:layout_height="56dp"
+            android:weightSum="1">
 
             <TextView
-                android:text="Adicionar Duvida"
+                android:text="Responder Duvida"
                 android:layout_width="wrap_content"
-                android:layout_height="33dp"
+                android:layout_height="36dp"
                 android:id="@+id/textView5"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -41,16 +41,17 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button"
+                android:id="@+id/salvar_resposta"
                 android:background="@color/colorPrimary"
-                android:text="salvar"
+                android:text="Responder"
+                android:layout_margin="16dp"
                 android:layout_gravity="center"
-                android:onClick="salvarDuvida"/>
+                android:onClick="salvarResposta"/>
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_add_duvida" />
+    <include layout="@layout/content_responder_duvida" />
 
 
 </android.support.design.widget.CoordinatorLayout>

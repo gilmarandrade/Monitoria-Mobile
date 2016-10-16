@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ufrn.imd.monitoria_mobile">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature android:name="android.hardware.camera" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +27,13 @@
             android:name=".activity.AlunoDetalhesDuvidaActivity"
             android:label="@string/title_activity_aluno_detalhes_duvida"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.AddDuvida"></activity>
+        <activity
+            android:name=".activity.AddDuvida"
+            android:label="Adicionar Duvida"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activity.ResponderDuvida"
+            android:label="Responder Duvida"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

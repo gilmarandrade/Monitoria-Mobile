@@ -13,4 +13,66 @@
     tools:context="br.ufrn.imd.monitoria_mobile.activity.AddDuvida"
     tools:showIn="@layout/activity_add_duvida">
 
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="141dp"
+        android:src="@drawable/ic_panorama"
+        android:id="@+id/image_duvida"
+        android:background="#D3D3D3"
+        android:tint="#808080" />
+
+    <ImageButton
+        android:layout_width="46dp"
+        android:layout_height="41dp"
+        android:src="@drawable/ic_menu_camera"
+        android:id="@+id/add_imagem_duvida"
+        android:tint="@color/colorWhite"
+        android:background="@drawable/screen_border"
+        android:layout_gravity="right"
+        android:layout_marginRight="16dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Assunto" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:text="Diciplina"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textView2" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_t" />
+
+</LinearLayout>
 </RelativeLayout>

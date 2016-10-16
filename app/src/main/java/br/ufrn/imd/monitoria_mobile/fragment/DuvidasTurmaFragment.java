@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.activity.AddDuvida;
 import br.ufrn.imd.monitoria_mobile.adapter.DuvidasTurmaAdapter;
 import br.ufrn.imd.monitoria_mobile.model.Comentario;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
@@ -55,8 +57,8 @@ public class DuvidasTurmaFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Adicionar Dúvida na turma não implementado ainda!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i = new Intent(getActivity(), AddDuvida.class);
+                startActivity(i);
             }
         });
 

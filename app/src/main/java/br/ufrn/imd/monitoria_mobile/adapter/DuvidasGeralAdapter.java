@@ -22,6 +22,7 @@ import java.util.List;
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
 import br.ufrn.imd.monitoria_mobile.activity.AlunoMainActivity;
+import br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida;
 import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
@@ -77,6 +78,17 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         }
 
         final Duvida d = list.get(i);
+
+        duvidaSimplesViewHolder.vBtnResponder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context.getApplicationContext(), ResponderDuvida.class);
+                i.putExtra("duvida", d);
+                context.startActivity(i);
+            }
+        });
+
+
         duvidaSimplesViewHolder.vCard.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
@@ -133,6 +145,8 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
             vBtnCurtir = (Button) v.findViewById(R.id.duvidaSimples_btnCurtir);
             vBtnDescurtir = (Button) v.findViewById(R.id.duvidaSimples_btnDescurtir);
             vBtnResponder = (Button) v.findViewById(R.id.duvidaSimples_btnResponder);
+
+
 
             vCard = (CardView) v.findViewById(R.id.duvidaSimples_card);
             vOptionalFoto = (RelativeLayout) v.findViewById(R.id.duvidaSimples_opcionalImage);

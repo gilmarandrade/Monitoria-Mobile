@@ -1,7 +1,14 @@
 package br.ufrn.imd.monitoria_mobile.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.media.Image;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +36,9 @@ public class AddDuvida extends AppCompatActivity {
     private Spinner spn1;
     private List<String> nomes = new ArrayList<String>();
     private String nome;
+    private Bitmap bitmap;
+
+    private static final int REQUEST_IMAGE_CAPTURE = 1888;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +46,13 @@ public class AddDuvida extends AppCompatActivity {
         setContentView(R.layout.activity_add_duvida);
         imagemDuvida = (ImageView) findViewById(R.id.image_duvida);
         addImageDuvida = (ImageButton) findViewById(R.id.add_imagem_duvida);
+
+        addImageDuvida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirCamera();
+            }
+        });
 
         nomes.add("FMC II - Fundamentos Matematicos");
         nomes.add("DSDM - Desenvolvimento de Sistema");
@@ -62,5 +82,26 @@ public class AddDuvida extends AppCompatActivity {
 
     }
 
+    public void abrirCamera(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK){
+            Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+            imagemDuvida.setImageBitmap(bitmap);
+        }
+    }
+
+
+
+    public void salvarDuvida(View view) {
+        Snackbar.make(view, "Adicionar Dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
 }
