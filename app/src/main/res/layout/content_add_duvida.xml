@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/ic_panorama"
-        android:id="@+id/image_duvida" />
+        android:id="@+id/image_duvida"
+        android:layout_weight="0.34" />
 
     <ImageButton
         android:layout_width="46dp"
