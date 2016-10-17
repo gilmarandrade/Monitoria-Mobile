@@ -59,12 +59,16 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent i = getIntent();
+        final Duvida duvida = (Duvida) i.getSerializableExtra("duvida");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Responder dúvida não implementado ainda", Snackbar.LENGTH_LONG)
-                       .setAction("Action", null).show();
+                Intent i = new Intent(getApplicationContext(), ResponderDuvida.class);
+                i.putExtra("duvida", duvida);
+                startActivity(i);
             }
         });
 
@@ -84,10 +88,6 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vQtdComentarios = (TextView) findViewById(R.id.detalhesduvida_qtdComentarios);
         vQtdRespostas = (TextView) findViewById(R.id.detalhesduvida_qtdRespostas);
 
-
-
-        Intent i = getIntent();
-        Duvida duvida = (Duvida) i.getSerializableExtra("duvida");
 
         ActionBar ab = getSupportActionBar();
         ab.setTitle(duvida.getDisciplina());

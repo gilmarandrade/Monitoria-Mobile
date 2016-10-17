@@ -24,11 +24,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="141dp"
+        android:layout_height="200dp"
         android:src="@drawable/ic_panorama"
-        android:id="@+id/image_duvida"
-        android:background="#D3D3D3"
-        android:tint="#808080" />
+        android:id="@+id/image_duvida" />
 
     <ImageButton
         android:layout_width="46dp"

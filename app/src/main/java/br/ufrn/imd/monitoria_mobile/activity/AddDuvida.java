@@ -2,6 +2,7 @@ package br.ufrn.imd.monitoria_mobile.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -94,7 +95,11 @@ public class AddDuvida extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK){
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+            imagemDuvida.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imagemDuvida.setImageBitmap(bitmap);
+            imagemDuvida.setMaxHeight(200);
+            imagemDuvida.setMinimumHeight(200);
+
         }
     }
 
@@ -103,5 +108,16 @@ public class AddDuvida extends AppCompatActivity {
     public void salvarDuvida(View view) {
         Snackbar.make(view, "Adicionar Dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Toast.makeText(this, "landscape", Toast.LENGTH_LONG).show();
+        }else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "portrait", Toast.LENGTH_LONG).show();
+        }
     }
 }

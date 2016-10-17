@@ -30,9 +30,11 @@
         <activity
             android:name=".activity.AddDuvida"
             android:label="Adicionar Duvida"
+            android:configChanges="screenSize|orientation|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".activity.ResponderDuvida"
             android:label="Responder Duvida"
+            android:configChanges="screenSize|orientation|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
