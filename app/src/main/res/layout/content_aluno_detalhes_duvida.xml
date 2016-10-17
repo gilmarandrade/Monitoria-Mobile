@@ -70,11 +70,12 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="16"
                 android:id="@+id/detalhesduvida_opcionalImage"
                 android:layout_below="@+id/detalhesduvida_cabecalho">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/user1"
                     android:id="@+id/detalhesduvida_foto"
                     android:layout_alignParentTop="true"
@@ -124,7 +125,7 @@
                             android:id="@+id/recyclerView_detalhesduvida_comentarios"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/resposta_qtdComentarios"/>
+                            android:layout_below="@id/detalhesduvida_qtdComentarios"/>
                         <Button
                             android:text="comentar"
                             android:layout_width="wrap_content"
