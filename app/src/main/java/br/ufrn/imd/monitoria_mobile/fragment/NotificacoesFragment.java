@@ -66,10 +66,10 @@ public class NotificacoesFragment extends Fragment {
     private void initDataset() {
         mDataset = new ArrayList<Notificacao>();
 
-        int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
+        int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user7, R.drawable.user5, R.drawable.user6};
         String titulos[] = {"Ei, o que é mesmo um Framework?", "Exercício de Revisão", "Dúvida sobre prova por absurdo", "Erro ao compilar Android"};
         String descricoes[] = {"respondeu sua dúvida", "aprovou sua resposta", "comentou sua dúvida", "reprovou sua resposta", "fechou sua dúvida","curtiu sua dúvida"};
-        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "Julia Guardiani", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
         String disciplinas[] = {"DSDM", "CDI I", "FMC II", "DSW II"};
         String datas[] = {"1 min", "2 min", "15 min", "43 min", "2 h", "1 d"};
 

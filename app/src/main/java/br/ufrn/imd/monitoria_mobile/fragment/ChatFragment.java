@@ -78,8 +78,8 @@ public class ChatFragment extends Fragment {
     private void initDataset() {
         mDataset = new ArrayList<Chat>();
 
-        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
-        int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
+        String nomes[] = {"Julia Guardiani", "Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        int fotosUsuario[] = {R.drawable.user7, R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
         String mensagem[] = {"Ei, quando você estará disponível para a gente conversar sobre aquela dúvida?", "pode ser amanhã na monitoria?", "Sandra Adams - Ainda hoje até as 5h", "Eu disse que era fácil :P", "kkkk", "Clicando com o botão direito no ícone você vai ver as opções exibidas no canto inferior da tela"};
         String dataCriacao[] = {"09:30", "09:35", "10:11", "14/09", "07/09", "01/08"};
 

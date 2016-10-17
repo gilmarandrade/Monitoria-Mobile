@@ -90,8 +90,8 @@ public class DuvidasTurmaFragment extends Fragment {
     private void initDataset(String disciplina) {
         mDataset = new ArrayList<Duvida>();
 
-        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
-        int fotosUsuario[] = {R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
+        String nomes[] = {"Julia Guardiani", "Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        int fotosUsuario[] = {R.drawable.user7, R.drawable.user1, R.drawable.user2, R.drawable.user3, R.drawable.user4, R.drawable.user5, R.drawable.user6};
         int fotos[] = {R.drawable.foto1, -1, -1, R.drawable.foto2, -1, R.drawable.foto3};
         String titulos[] = {"Socorro Alguém me ajuda!", "JavaFX Threads Atualizar UI e carregar Sistema em segundo plano", "Qual a diferença entre os métodos virtual e abstract?", "Como filtrar um Texto em uma div com angular JS", "Retorno de seleção de radiobutton em C#", "Problemas com autoload"};
         String descricoes[] = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
@@ -119,8 +119,8 @@ public class DuvidasTurmaFragment extends Fragment {
     }
 
     private List<Resposta> gerarRespostas(int count, Duvida.Status statusDuvida){
-        String nomes[] = {"Maria", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
-        int fotosUsuario[] = {R.drawable.user4, R.drawable.user2, R.drawable.user5, R.drawable.user1, R.drawable.user3, R.drawable.user6};
+        String nomes[] = {"Maria", "Julia Guardiani", "João", "Ricardo Rodrigues", "Chico Mendes", "José de Oliveira", "Ana Maria", "Sanderson Melo", "Raianne Alynne", "Jobson Almeida", "Gabriel Garcia"};
+        int fotosUsuario[] = {R.drawable.user4, R.drawable.user7, R.drawable.user2, R.drawable.user5, R.drawable.user1, R.drawable.user3, R.drawable.user6};
         String dataCriacao[] = {"23 set 07:40", "12 set 12:09", "05 ago 16:55", "15 jul 08:32"};
         String descricao[] = {"Alguma das dependências do seu projeto foi compilada com Java 8,mas você está usando Java 7 no projeto. Coloque seu projeto para usar Java 8 ou recompile a biblioteca que está causando o problema após fazer a alteração necessária.", "A pergunta é meio antiga, mas não custa responder :-) Como você tem acesso ao código fonte (visto que é open source), você poderia gerar um Jar a partir do projeto (via gradle) e depois copiar o Jar na sua pasta de bibliotecas. É importante ser via gradle para ele criar um jar que contenha todas as dependencias desse projeto que você quer usar.",
                 "O processo para criar um jar está descrito aqui. Eu desaconselho fortemente essa solução pois gerenciar dependencias \"na mão\" nunca é uma boa idéia. Se o seu projeto é de estudo ou algo do genero isso não será um problema, mas qualquer coisa além disso você terá (serios) problemas no futuro.",
