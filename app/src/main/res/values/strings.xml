@@ -11,4 +11,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_aluno_detalhes_duvida">AlunoDetalhesDuvidaActivity</string>
     <string name="title_activity_add_duvida">AddDuvida</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
 </resources>
