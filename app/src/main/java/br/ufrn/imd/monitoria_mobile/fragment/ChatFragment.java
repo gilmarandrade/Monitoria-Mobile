@@ -1,11 +1,9 @@
 package br.ufrn.imd.monitoria_mobile.fragment;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -84,7 +82,7 @@ public class ChatFragment extends Fragment {
         String dataCriacao[] = {"09:30", "09:35", "10:11", "14/09", "07/09", "01/08"};
 
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset.add( new Chat(nomes[i%10], fotosUsuario[i%6], mensagem[i%6], dataCriacao[i%6]));
+            mDataset.add(new Chat(nomes[i % 10], fotosUsuario[i % 6], mensagem[i % 6], dataCriacao[i % 6]));
         }
     }
 

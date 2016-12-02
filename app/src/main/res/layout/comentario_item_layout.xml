@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comentarioitem_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/comentarioitem_item">
+    android:layout_height="wrap_content">
+
     <View style="@style/Divider" />
+
     <TextView
+        android:id="@+id/comentarioitem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/comentarioitem_descricao"
-        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:padding="5dp"
         android:text="lorem ipsum dolor sit amet consectus elipsus de la - "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_marginLeft="20dp"
-        android:padding="5dp"/>
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

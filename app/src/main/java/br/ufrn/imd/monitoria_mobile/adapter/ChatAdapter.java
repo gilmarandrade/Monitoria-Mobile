@@ -43,9 +43,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
 
         chatViewHolder.vChatItem.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         Snackbar.make(v, "Ver chat não implementado ainda!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
@@ -58,7 +58,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     public ChatAdapter.ChatViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.chat_item_layout, viewGroup, false);
 
-        return new  ChatAdapter.ChatViewHolder(itemView);
+        return new ChatAdapter.ChatViewHolder(itemView);
     }
 
     public static class ChatViewHolder extends RecyclerView.ViewHolder {

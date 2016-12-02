@@ -1,183 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/duvidaSimples_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/duvidaSimples_card"
-    android:layout_marginBottom="7dp"
-    >
+    android:layout_marginBottom="7dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <RelativeLayout
+            android:id="@+id/duvidaSimples_cabecalho"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:id="@+id/duvidaSimples_cabecalho">
+            android:padding="16dp">
+
             <ImageView
+                android:id="@+id/duvidaSimples_fotoUsusario"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/user1"
-                android:id="@+id/duvidaSimples_fotoUsusario"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:srcCompat="@drawable/user1" />
 
             <TextView
+                android:id="@+id/duvidaSimples_nomeUsusario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_nomeUsusario"
-                android:textSize="18sp"
-                android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
+                android:layout_alignParentTop="true"
                 android:layout_marginLeft="13dp"
                 android:layout_marginStart="13dp"
-                android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/duvidaSimples_fotoUsusario"
                 android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/duvidaSimples_disciplina"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_disciplina"
-                android:textSize="14sp"
-                android:text="CD I - Cálculo Diferencial e Integral I"
+                android:layout_alignLeft="@+id/duvidaSimples_nomeUsusario"
+                android:layout_alignStart="@+id/duvidaSimples_nomeUsusario"
+                android:layout_below="@+id/duvidaSimples_nomeUsusario"
                 android:ellipsize="marquee"
                 android:maxLines="1"
+                android:text="CD I - Cálculo Diferencial e Integral I"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/cardview_dark_background"
-                android:layout_below="@+id/duvidaSimples_nomeUsusario"
-                android:layout_alignLeft="@+id/duvidaSimples_nomeUsusario"
-                android:layout_alignStart="@+id/duvidaSimples_nomeUsusario"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/duvidaSimples_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_data"
-                android:textSize="14sp"
-                android:text="23 nov 05:10"
-                android:maxLines="1"
-                android:textColor="@color/cardview_dark_background"
-                android:layout_below="@+id/duvidaSimples_nomeUsusario"
                 android:layout_alignLeft="@+id/duvidaSimples_nomeUsusario"
                 android:layout_alignStart="@+id/duvidaSimples_nomeUsusario"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:layout_below="@+id/duvidaSimples_nomeUsusario"
+                android:maxLines="1"
+                android:text="23 nov 05:10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/duvidaSimples_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_status"
-                android:textSize="14sp"
-                android:text="RESOLVIDA"
-                android:maxLines="1"
-                android:textColor="@android:color/holo_green_dark"
-                android:layout_below="@+id/duvidaSimples_disciplina"
                 android:layout_alignLeft="@+id/duvidaSimples_disciplina"
-                android:layout_alignStart="@+id/duvidaSimples_disciplina" />
+                android:layout_alignStart="@+id/duvidaSimples_disciplina"
+                android:layout_below="@+id/duvidaSimples_disciplina"
+                android:maxLines="1"
+                android:text="RESOLVIDA"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="14sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/duvidaSimples_opcionalImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
-            android:id="@+id/duvidaSimples_opcionalImage"
-            android:layout_below="@+id/duvidaSimples_cabecalho">
+            android:layout_below="@+id/duvidaSimples_cabecalho"
+            android:layout_weight="16">
+
             <ImageView
+                android:id="@+id/duvidaSimples_foto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/user1"
-                android:id="@+id/duvidaSimples_foto"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:scaleType="centerCrop"/>
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/user1" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/duvidaSimples_corpo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/duvidaSimples_corpo"
-            android:padding="16dp"
-            android:layout_below="@+id/duvidaSimples_opcionalImage">
+            android:layout_below="@+id/duvidaSimples_opcionalImage"
+            android:padding="16dp">
 
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/duvidaSimples_titulo"
-                android:textSize="18sp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_descricao"
-                android:maxLines="10"
-                android:ellipsize="marquee"
-                android:textSize="14sp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-                android:layout_below="@+id/duvidaSimples_titulo"
-                android:layout_marginTop="14dp" />
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/duvidaSimples_descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/duvidaSimples_titulo"
+                android:layout_marginTop="14dp"
+                android:ellipsize="marquee"
+                android:maxLines="10"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/duvidaSimples_curtidas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_curtidas"
-                android:textSize="12sp"
-                android:text="3 curtidas"
-                android:maxLines="1"
                 android:layout_below="@+id/duvidaSimples_descricao"
                 android:layout_marginTop="14dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:maxLines="1"
+                android:text="3 curtidas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/duvidaSimples_respostas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/duvidaSimples_respostas"
-                android:textSize="12sp"
-                android:text="3 respostas"
-                android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:layout_alignBaseline="@+id/duvidaSimples_curtidas"
-                android:layout_toRightOf="@+id/duvidaSimples_curtidas"
                 android:layout_marginLeft="20dp"
-                android:layout_toEndOf="@+id/duvidaSimples_curtidas" />
+                android:layout_toEndOf="@+id/duvidaSimples_curtidas"
+                android:layout_toRightOf="@+id/duvidaSimples_curtidas"
+                android:maxLines="1"
+                android:text="3 respostas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="12sp" />
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/duvidaSimples_curtidas"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="20dp">
+                android:layout_below="@+id/duvidaSimples_curtidas"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
                 <Button
-                    android:text=" curtir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/duvidaSimples_btnCurtir"
-                    android:drawableLeft="@drawable/ic_thumb_up"
-                    style="@style/Widget.AppCompat.Button.Borderless" />
-
-                <Button
-                    android:text=" descurtir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/duvidaSimples_btnDescurtir"
-                    android:drawableLeft="@drawable/ic_thumb_up2"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:theme="@style/AppTheme.CurtirButton"
-                    />
-
-                <Button
-                    android:text=" responder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/duvidaSimples_btnResponder"
-                    android:drawableLeft="@drawable/ic_chat"
                     style="@style/Widget.AppCompat.Button.Borderless"
-                    android:visibility="visible"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_thumb_up"
+                    android:text=" curtir" />
+
+                <Button
+                    android:id="@+id/duvidaSimples_btnDescurtir"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_thumb_up2"
+                    android:text=" descurtir"
+                    android:theme="@style/AppTheme.CurtirButton" />
+
+                <Button
+                    android:id="@+id/duvidaSimples_btnResponder"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_chat"
+                    android:text=" responder"
+                    android:visibility="visible" />
 
 
             </LinearLayout>

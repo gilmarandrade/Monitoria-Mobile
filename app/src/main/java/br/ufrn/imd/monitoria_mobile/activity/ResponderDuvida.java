@@ -3,11 +3,10 @@ package br.ufrn.imd.monitoria_mobile.activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,12 +18,10 @@ import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class ResponderDuvida extends AppCompatActivity {
 
-    private TextView duvidaAluno;
-
-    private ImageView imagemResposta;
-
-    private ImageButton addImagemResposta;
     private static final int REQUEST_IMAGE_CAPTURE = 1888;
+    private TextView duvidaAluno;
+    private ImageView imagemResposta;
+    private ImageButton addImagemResposta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,7 @@ public class ResponderDuvida extends AppCompatActivity {
 
     }
 
-    public void abrirCamera(){
+    public void abrirCamera() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -57,8 +54,8 @@ public class ResponderDuvida extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK){
-            Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        if (REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imagemResposta.setImageBitmap(bitmap);
             imagemResposta.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }

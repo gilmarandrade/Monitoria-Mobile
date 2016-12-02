@@ -2,7 +2,7 @@ package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
 
-public class Comentario implements Serializable{
+public class Comentario implements Serializable {
     private String descricao;
     private String nomeUsuario;
     private String dataCriacao;

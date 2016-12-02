@@ -1,4 +1,4 @@
-package br.ufrn.imd.monitoria_mobile;
+package br.ufrn.imd.monitoria_mobile.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.adapter.CustomAdapter;
 
 /**
  * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a

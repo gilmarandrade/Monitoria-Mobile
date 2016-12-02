@@ -1,6 +1,7 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Resposta implements Serializable {
@@ -12,12 +13,6 @@ public class Resposta implements Serializable {
     private Status Status;
     private boolean melhorResposta;
     private List<Comentario> comentarios;
-
-    public static enum Status {
-        APROVADA,
-        AGUARDANDO,
-        REPROVADA
-    }
 
     public Resposta() {
     }
@@ -81,10 +76,17 @@ public class Resposta implements Serializable {
     }
 
     public List<Comentario> getComentarios() {
-        return comentarios;
+        //return comentarios;
+        return new ArrayList<Comentario>();
     }
 
     public void setComentarios(List<Comentario> comentarios) {
         this.comentarios = comentarios;
+    }
+
+    public static enum Status {
+        APROVADA,
+        AGUARDANDO,
+        REPROVADA
     }
 }

@@ -20,17 +20,15 @@ import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Comentario;
 import br.ufrn.imd.monitoria_mobile.model.Resposta;
 
-public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.RespostasViewHolder>{
-
-    private List<Resposta> list;
-    private Context context;
-
+public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.RespostasViewHolder> {
 
     private static final int DATASET_COUNT = 10;
     protected RecyclerView mRecyclerView;
     protected ComentariosAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected List<Comentario> mDataset;
+    private List<Resposta> list;
+    private Context context;
 
     public RespostasAdapter(List<Resposta> dataSet, Context context) {
         this.list = dataSet;
@@ -49,25 +47,25 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         respostasViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         respostasViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
         respostasViewHolder.vData.setText(list.get(i).getData());
-        if(list.get(i).getStatus() == Resposta.Status.REPROVADA){
-            respostasViewHolder.vStatus.setTextColor(Color.rgb(229, 57,53));
-        }else if(list.get(i).getStatus() == Resposta.Status.APROVADA){
-            respostasViewHolder.vStatus.setTextColor(Color.rgb(67, 160,61));
-        }else{
+        if (list.get(i).getStatus() == Resposta.Status.REPROVADA) {
+            respostasViewHolder.vStatus.setTextColor(Color.rgb(229, 57, 53));
+        } else if (list.get(i).getStatus() == Resposta.Status.APROVADA) {
+            respostasViewHolder.vStatus.setTextColor(Color.rgb(67, 160, 61));
+        } else {
             respostasViewHolder.vStatus.setTextColor(Color.rgb(153, 153, 153));
         }
-        respostasViewHolder.vStatus.setText(list.get(i).getStatus().toString());
+        //respostasViewHolder.vStatus.setText(list.get(i).getStatus().toString());
+        respostasViewHolder.vStatus.setText("REPROVADO");
         respostasViewHolder.vDescricao.setText(list.get(i).getDescricao());
 
-        if(list.get(i).isMelhorResposta()){
-            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(220,237, 200));
+        if (list.get(i).isMelhorResposta()) {
+            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(220, 237, 200));
             respostasViewHolder.vStatus.setText("MELHOR RESPOSTA");
-        }else{
-            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(255,255, 255));
+        } else {
+            respostasViewHolder.vRespostaItem.setBackgroundColor(Color.rgb(255, 255, 255));
         }
 
         respostasViewHolder.vQtdComentarios.setText(list.get(i).getComentarios().size() + " comentários");
-
 
 
         // Initialize dataset, this data would usually come from a local content provider or
@@ -98,6 +96,14 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
         return new RespostasAdapter.RespostasViewHolder(itemView);
     }
 
+    /**
+     * Generates Strings for RecyclerView's adapter. This data would usually come
+     * from a local content provider or remote server.
+     */
+    private void initDataset(List<Comentario> comentarios) {
+        mDataset = comentarios;
+    }
+
     public static class RespostasViewHolder extends RecyclerView.ViewHolder {
         protected TextView vNomeUsuario;
         protected ImageView vFotoUsuario;
@@ -125,15 +131,6 @@ public class RespostasAdapter extends RecyclerView.Adapter<RespostasAdapter.Resp
             viewRoot = v;
 
         }
-    }
-
-
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private void initDataset(List<Comentario> comentarios) {
-        mDataset = comentarios;
     }
 
 }

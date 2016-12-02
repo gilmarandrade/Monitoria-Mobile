@@ -2,7 +2,6 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -21,9 +20,7 @@ import java.util.List;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
-import br.ufrn.imd.monitoria_mobile.activity.AlunoMainActivity;
 import br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida;
-import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
@@ -42,7 +39,7 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
     }
 
     @Override
-    public void onBindViewHolder(DuvidasGeralViewHolder duvidaSimplesViewHolder, int i) {
+    public void onBindViewHolder(final DuvidasGeralViewHolder duvidaSimplesViewHolder, int i) {
         Drawable roundedImage = RoundedImageView.getRoundedImageView(list.get(i).getImagemUsuario(), 70, 70, 200.0f, this.context.getResources());
         duvidaSimplesViewHolder.vFotoUsuario.setImageDrawable(roundedImage);
         duvidaSimplesViewHolder.vNomeUsuario.setText(list.get(i).getNomeUsuario());
@@ -50,10 +47,10 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vDisciplina.setVisibility(View.VISIBLE);
         duvidaSimplesViewHolder.vData.setVisibility(View.GONE);
 
-        if(list.get(i).getStatus() == Duvida.Status.FECHADA){
+        if (list.get(i).getStatus() == Duvida.Status.FECHADA) {
             duvidaSimplesViewHolder.vStatus.setText("RESOLVIDA");
             duvidaSimplesViewHolder.vStatus.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             duvidaSimplesViewHolder.vStatus.setVisibility(View.INVISIBLE);
         }
         duvidaSimplesViewHolder.vTitulo.setText(list.get(i).getTitulo());
@@ -61,19 +58,19 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
         duvidaSimplesViewHolder.vRespostas.setText(list.get(i).getRespostas().size() + " respostas");
 
-        if(list.get(i).getTotalCurtidas() >=5){
+        if (list.get(i).isCurtida()) {
             duvidaSimplesViewHolder.vBtnCurtir.setVisibility(View.GONE);
             duvidaSimplesViewHolder.vBtnDescurtir.setVisibility(View.VISIBLE);
-        }else{
-           duvidaSimplesViewHolder.vBtnCurtir.setVisibility(View.VISIBLE);
-           duvidaSimplesViewHolder.vBtnDescurtir.setVisibility(View.GONE);
+        } else {
+            duvidaSimplesViewHolder.vBtnCurtir.setVisibility(View.VISIBLE);
+            duvidaSimplesViewHolder.vBtnDescurtir.setVisibility(View.GONE);
         }
 
-        if(list.get(i).getFoto() != -1){
+        if (list.get(i).getFoto() != -1) {
             Bitmap mBitmap = BitmapFactory.decodeResource(this.context.getResources(), list.get(i).getFoto());
             duvidaSimplesViewHolder.vFoto.setImageBitmap(mBitmap);
             duvidaSimplesViewHolder.vOptionalFoto.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             duvidaSimplesViewHolder.vOptionalFoto.setVisibility(View.GONE);
         }
 
@@ -90,22 +87,32 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
 
 
         duvidaSimplesViewHolder.vCard.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         Intent i = new Intent(context.getApplicationContext(), AlunoDetalhesDuvidaActivity.class);
                         i.putExtra("duvida", d);
                         context.startActivity(i);
-                       // Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        // Snackbar.make(v, "Ver detalhes da dúvida não implementado ainda!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     }
                 }
         );
+
+        duvidaSimplesViewHolder.vBtnCurtir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, d.getDescricao(), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                duvidaSimplesViewHolder.vDescricao.setText("Clicado");
+                notifyItemChanged(duvidaSimplesViewHolder.getAdapterPosition());
+            }
+        });
 
     }
 
     @Override
     public DuvidasGeralViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-       View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardlayout_duvidasimples, viewGroup, false);
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardlayout_duvidasimples, viewGroup, false);
 
         return new DuvidasGeralViewHolder(itemView);
     }
@@ -147,11 +154,18 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
             vBtnResponder = (Button) v.findViewById(R.id.duvidaSimples_btnResponder);
 
 
-
             vCard = (CardView) v.findViewById(R.id.duvidaSimples_card);
             vOptionalFoto = (RelativeLayout) v.findViewById(R.id.duvidaSimples_opcionalImage);
             vFoto = (ImageView) v.findViewById(R.id.duvidaSimples_foto);
 
         }
+    }
+
+    public List<Duvida> getList() {
+        return list;
+    }
+
+    public void setList(List<Duvida> list) {
+        this.list = list;
     }
 }

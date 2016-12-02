@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_duvidas_gerais"
             android:icon="@drawable/ic_live_help"
-            android:title="Duvidas"/>
+            android:title="Duvidas" />
         <item
             android:id="@+id/nav_minhas_duvidas"
             android:icon="@drawable/ic_mode_comment"
@@ -25,16 +25,7 @@
     </group>
 
     <item android:title="Turmas">
-        <menu>
-            <item
-                android:id="@+id/nav_duvidas_turma1"
-                android:title="FMC II - Fundamentos Matemáticos da Computação II" />
-            <item
-                android:id="@+id/nav_duvidas_turma2"
-                android:title="DSDM - Densenvolvimento de Sistema para Dispostivos Móveis" />
-            <item
-                android:id="@+id/nav_duvidas_turma3"
-                android:title="CDI I - Cálculo Diferencial e Integral I" />
+        <menu  >
         </menu>
     </item>
 

@@ -6,6 +6,9 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,26 +19,29 @@
             android:name=".activity.AlunoMainActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activity.AlunoDetalhesDuvidaActivity"
             android:label="@string/title_activity_aluno_detalhes_duvida"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.AddDuvida"
+            android:configChanges="screenSize|orientation|keyboardHidden"
             android:label="Adicionar Duvida"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ResponderDuvida"
             android:configChanges="screenSize|orientation|keyboardHidden"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activity.ResponderDuvida"
             android:label="Responder Duvida"
-            android:configChanges="screenSize|orientation|keyboardHidden"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CarregandoActivity"></activity>
     </application>
 
 </manifest>

@@ -1,113 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/resposta_resposta"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <View style="@style/Divider" />
+
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/resposta_cabecalho"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/resposta_resposta"
-        android:background="@color/colorWhite">
-        <View style="@style/Divider"/>
-        <RelativeLayout
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/resposta_fotoUsusario"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/user1" />
+
+        <TextView
+            android:id="@+id/resposta_nomeUsusario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:id="@+id/resposta_cabecalho">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/user1"
-                android:id="@+id/resposta_fotoUsusario"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_toRightOf="@+id/resposta_fotoUsusario"
+            android:maxLines="1"
+            android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/resposta_nomeUsusario"
-                android:textSize="18sp"
-                android:text="Chiquinho Gonzaga da Silva Sauro Barbosa de Lima Neto"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/resposta_fotoUsusario"
-                android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/resposta_data"
-                android:textSize="14sp"
-                android:text="23 nov 05:10"
-                android:maxLines="1"
-                android:textColor="@color/cardview_dark_background"
-                android:layout_below="@+id/resposta_nomeUsusario"
-                android:layout_alignLeft="@+id/resposta_nomeUsusario"
-                android:layout_alignStart="@+id/resposta_nomeUsusario"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/resposta_status"
-                android:textSize="10sp"
-                android:text="RESOLVIDA"
-                android:maxLines="1"
-                android:textColor="@color/colorGray"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/resposta_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/resposta_corpo"
-            android:paddingTop="0dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="20dp"
-            android:layout_below="@+id/resposta_cabecalho">
+            android:layout_alignLeft="@+id/resposta_nomeUsusario"
+            android:layout_alignStart="@+id/resposta_nomeUsusario"
+            android:layout_below="@+id/resposta_nomeUsusario"
+            android:maxLines="1"
+            android:text="23 nov 05:10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="14sp" />
 
-
-           <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/resposta_descricao"
-                android:textSize="16sp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-               android:layout_marginLeft="60dp"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/resposta_status"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/resposta_corpo"
-            android:paddingLeft="80dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/resposta_qtdComentarios"
-                android:textSize="14sp"
-                android:text="# comentarios"/>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView_resposta_comentarios"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/resposta_qtdComentarios"/>
+            android:layout_alignParentRight="true"
+            android:maxLines="1"
+            android:text="RESOLVIDA"
+            android:textColor="@color/colorGray"
+            android:textSize="10sp" />
 
-            <Button
-                android:text="comentar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/recyclerView_resposta_comentarios"
-                android:layout_alignParentRight="true"
-                android:layout_alignWithParentIfMissing="true"
-                android:id="@+id/resposta_btnAddComentario"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:textColor="@color/colorAccent"/>
-        </RelativeLayout>
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resposta_corpo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resposta_cabecalho"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="0dp">
+
+
+        <TextView
+            android:id="@+id/resposta_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="60dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resposta_corpo"
+        android:paddingBottom="10dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/resposta_qtdComentarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="# comentarios"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_resposta_comentarios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/resposta_qtdComentarios" />
+
+        <Button
+            android:id="@+id/resposta_btnAddComentario"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_below="@id/recyclerView_resposta_comentarios"
+            android:text="comentar"
+            android:textColor="@color/colorAccent" />
+    </RelativeLayout>
+</RelativeLayout>

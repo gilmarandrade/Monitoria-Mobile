@@ -3,7 +3,7 @@ package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
 
-public class Chat implements Serializable{
+public class Chat implements Serializable {
     private String nomeUsuario;
     private int fotoUsuario;
     private String ultimaMensagem;

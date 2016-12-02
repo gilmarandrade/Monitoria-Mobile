@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,29 +27,24 @@ import br.ufrn.imd.monitoria_mobile.model.Resposta;
 
 public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
 
-    private TextView vNomeUsuario;
-    private ImageView vFotoUsuario;
-    private TextView vDataCriacao;
-    private TextView vStatus;
-
-    private RelativeLayout vOptionalImage;
-    private ImageView vFoto;
-
-    private TextView vTitulo;
-    private TextView vDescricao;
-
-    private TextView vQtdComentarios;
-    private TextView vQtdRespostas;
-
     protected RecyclerView mRecyclerViewRespostas;
     protected RespostasAdapter mAdapterRespostas;
     protected LinearLayoutManager mLayoutManagerRespostas;
     protected List<Resposta> mDatasetRespostas;
-
     protected RecyclerView mRecyclerViewComentarios;
     protected ComentariosAdapter mAdapterComentarios;
     protected LinearLayoutManager mLayoutManagerComentarios;
     protected List<Comentario> mDatasetComentarios;
+    private TextView vNomeUsuario;
+    private ImageView vFotoUsuario;
+    private TextView vDataCriacao;
+    private TextView vStatus;
+    private RelativeLayout vOptionalImage;
+    private ImageView vFoto;
+    private TextView vTitulo;
+    private TextView vDescricao;
+    private TextView vQtdComentarios;
+    private TextView vQtdRespostas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +65,6 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
 
         vNomeUsuario = (TextView) findViewById(R.id.detalhesduvida_nomeUsuario);
@@ -97,24 +90,25 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vFotoUsuario.setImageDrawable(roundedImage);
         vDataCriacao.setText(duvida.getDataCriacao());
 
-        if(duvida.getStatus() == Duvida.Status.FECHADA){
+        if (duvida.getStatus() == Duvida.Status.FECHADA) {
             vStatus.setText("RESOLVIDA");
             vStatus.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             vStatus.setVisibility(View.INVISIBLE);
         }
 
-        if(duvida.getFoto() > -1){
+        if (duvida.getFoto() > -1) {
             vFoto.setImageBitmap(BitmapFactory.decodeResource(getResources(), duvida.getFoto()));
-        }else{
+        } else {
             vOptionalImage.setVisibility(View.GONE);
         }
 
         vTitulo.setText(duvida.getTitulo());
         vDescricao.setText(duvida.getDescricao());
 
-        vQtdComentarios.setText(duvida.getComentarios().size()+" comentários");
-        vQtdRespostas.setText(duvida.getRespostas().size()+" respostas");
+        vQtdComentarios.setText(duvida.getComentarios().size() + " comentários");
+        vQtdComentarios.setText(duvida.getComentarios().size() + " comentários");
+        vQtdRespostas.setText(duvida.getRespostas().size() + " respostas");
 
 
         /**
@@ -130,14 +124,13 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
         // elements are laid out.
-        mLayoutManagerComentarios= new LinearLayoutManager(this);
+        mLayoutManagerComentarios = new LinearLayoutManager(this);
         mLayoutManagerComentarios.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerViewComentarios.setLayoutManager(mLayoutManagerComentarios);
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mAdapterComentarios = new ComentariosAdapter(mDatasetComentarios, this.getApplicationContext());
         mRecyclerViewComentarios.setAdapter(mAdapterComentarios);
-
 
 
         /**

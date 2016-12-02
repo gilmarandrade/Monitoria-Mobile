@@ -14,41 +14,41 @@
     tools:showIn="@layout/activity_responder_duvida">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
         android:weightSum="1">
 
         <ImageView
+            android:id="@+id/image_resposta"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/ic_panorama"
-            android:id="@+id/image_resposta" />
+            android:src="@drawable/ic_panorama" />
 
         <ImageButton
+            android:id="@+id/add_imagem_resposta"
             android:layout_width="46dp"
             android:layout_height="41dp"
-            android:src="@drawable/ic_menu_camera"
-            android:id="@+id/add_imagem_resposta"
-            android:tint="@color/colorWhite"
-            android:background="@drawable/screen_border"
             android:layout_gravity="right"
-            android:layout_marginRight="16dp" />
+            android:layout_marginRight="16dp"
+            android:background="@drawable/screen_border"
+            android:src="@drawable/ic_menu_camera"
+            android:tint="@color/colorWhite" />
 
         <TextView
-            android:text="Duvida"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4" />
+            android:text="Duvida" />
 
         <TextView
-            android:text="Duvida do aluno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/duvida_aluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duvida do aluno"
             android:textSize="18sp" />
 
         <android.support.design.widget.TextInputLayout

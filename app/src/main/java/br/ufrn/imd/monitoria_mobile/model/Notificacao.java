@@ -3,7 +3,7 @@ package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
 
-public class Notificacao implements Serializable{
+public class Notificacao implements Serializable {
     private int fotoUsuario;
     private String titulo;
     private String descricao;
@@ -25,16 +25,16 @@ public class Notificacao implements Serializable{
         return fotoUsuario;
     }
 
+    public void setFotoUsuario(int fotoUsuario) {
+        this.fotoUsuario = fotoUsuario;
+    }
+
     public String getDisciplina() {
         return disciplina;
     }
 
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
-    }
-
-    public void setFotoUsuario(int fotoUsuario) {
-        this.fotoUsuario = fotoUsuario;
     }
 
     public String getTitulo() {

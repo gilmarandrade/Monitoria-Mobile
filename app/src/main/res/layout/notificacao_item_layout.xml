@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notificacaoitem_item"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip"
-    android:id="@+id/notificacaoitem_item">
+    android:padding="6dip">
 
     <ImageView
         android:id="@+id/notificacaoitem_fotoUsuario"
@@ -38,9 +38,9 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_toRightOf="@id/notificacaoitem_fotoUsuario"
         android:gravity="center_vertical"
+        android:maxLines="1"
         android:text="Example application"
-        android:textSize="16sp"
-        android:maxLines="1"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/notificacaoitem_data"
@@ -50,11 +50,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:gravity="center_vertical"
-        android:text="23:04"
-        android:textSize="12sp"
         android:background="@color/colorWhite"
-        android:paddingLeft="10dp"/>
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="23:04"
+        android:textSize="12sp" />
 
 </RelativeLayout>
 

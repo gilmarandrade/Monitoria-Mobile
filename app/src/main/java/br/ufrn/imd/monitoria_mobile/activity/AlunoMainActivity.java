@@ -2,29 +2,48 @@ package br.ufrn.imd.monitoria_mobile.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+import com.google.gson.*;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.dominio.Disciplina;
+import br.ufrn.imd.monitoria_mobile.dominio.OAuthTokenRequest;
+import br.ufrn.imd.monitoria_mobile.fragment.RecyclerViewFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.ChatFragment;
+import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.DuvidasTurmaFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.MinhasDuvidasFragment;
 import br.ufrn.imd.monitoria_mobile.fragment.NotificacoesFragment;
-import br.ufrn.imd.monitoria_mobile.R;
-import br.ufrn.imd.monitoria_mobile.RecyclerViewFragment;
-import br.ufrn.imd.monitoria_mobile.fragment.DuvidasGeralFragment;
+
+import br.ufrn.imd.monitoria_mobile.dominio.Perfil;
+import br.ufrn.imd.monitoria_mobile.model.Dados;
 
 public class AlunoMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private NavigationView navigationView;
+    private Menu menu;
+    private TextView menuNomeAluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +62,12 @@ public class AlunoMainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        this.menu = navigationView.getMenu();
+        int order = 0;
+        for(Disciplina d : Dados.getPerfil().getDisciplinas()){
+            menu.getItem(5).getSubMenu().add(0,d.getId(),order, d.getDescricao());
+            order++;
+        }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_aluno_main, new DuvidasGeralFragment());
@@ -50,6 +75,7 @@ public class AlunoMainActivity extends AppCompatActivity
 
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Dúvidas");
+
 
     }
 
@@ -67,6 +93,8 @@ public class AlunoMainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.aluno_main, menu);
+        menuNomeAluno = (TextView) findViewById(R.id.menuNomeAluno);
+        menuNomeAluno.setText(Dados.getPerfil().getPessoa().getNome());
         return true;
     }
 
@@ -127,44 +155,18 @@ public class AlunoMainActivity extends AppCompatActivity
             ft.commit();
 
             ab.setTitle("Chat");
-        } else if (id == R.id.nav_duvidas_turma1) {
+        } else {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
 
             Bundle args = new Bundle();
-            args.putString("disciplina", "FMC II");
+            args.putString("disciplina", item.getItemId()+"");
             fragment.setArguments(args);
             ft.replace(R.id.content_aluno_main, fragment);
-            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
             ft.commit();
 
-            ab.setTitle("FMC II");
-        } else if (id == R.id.nav_duvidas_turma2) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
-
-            Bundle args = new Bundle();
-            args.putString("disciplina", "DSDM");
-            fragment.setArguments(args);
-            ft.replace(R.id.content_aluno_main, fragment);
-            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
-            ft.commit();
-
-            ab.setTitle("DSDM");
-        } else if (id == R.id.nav_duvidas_turma3) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            DuvidasTurmaFragment fragment = new DuvidasTurmaFragment();
-
-            Bundle args = new Bundle();
-            args.putString("disciplina", "CDI I");
-            fragment.setArguments(args);
-            ft.replace(R.id.content_aluno_main, fragment);
-            //ft.addToBackStack(null);//adiciona o fragment na pilha, par o botão voltar desempilhar para a activity anterior ao invés de fechar a aplicação
-            ft.commit();
-
-            ab.setTitle("CDI I");
+            ab.setTitle(Dados.getPerfil().getDisciplinas().get(item.getGroupId()).getCodigo());
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -175,10 +177,11 @@ public class AlunoMainActivity extends AppCompatActivity
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Toast.makeText(this, "landscape", Toast.LENGTH_LONG).show();
-        }else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             Toast.makeText(this, "portrait", Toast.LENGTH_LONG).show();
         }
     }
+
 }

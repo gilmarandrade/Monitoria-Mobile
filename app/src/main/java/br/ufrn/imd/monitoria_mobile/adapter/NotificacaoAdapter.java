@@ -2,7 +2,6 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +18,7 @@ import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Notificacao;
 
-public class NotificacaoAdapter  extends RecyclerView.Adapter<NotificacaoAdapter.NotificacaoViewHolder> {
+public class NotificacaoAdapter extends RecyclerView.Adapter<NotificacaoAdapter.NotificacaoViewHolder> {
     private List<Notificacao> list;
     private Context context;
 
@@ -43,9 +42,9 @@ public class NotificacaoAdapter  extends RecyclerView.Adapter<NotificacaoAdapter
 
 
         notificacaoViewHolder.vNotificacaoItem.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         Snackbar.make(v, "Ver notificação não implementado ainda!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
@@ -58,7 +57,7 @@ public class NotificacaoAdapter  extends RecyclerView.Adapter<NotificacaoAdapter
     public NotificacaoAdapter.NotificacaoViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.notificacao_item_layout, viewGroup, false);
 
-        return new  NotificacaoAdapter.NotificacaoViewHolder(itemView);
+        return new NotificacaoAdapter.NotificacaoViewHolder(itemView);
     }
 
     public static class NotificacaoViewHolder extends RecyclerView.ViewHolder {

@@ -1,29 +1,20 @@
 package br.ufrn.imd.monitoria_mobile.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.Image;
+import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,15 +22,13 @@ import br.ufrn.imd.monitoria_mobile.R;
 
 public class AddDuvida extends AppCompatActivity {
 
+    private static final int REQUEST_IMAGE_CAPTURE = 1888;
     private ImageView imagemDuvida;
     private ImageButton addImageDuvida;
-
     private Spinner spn1;
     private List<String> nomes = new ArrayList<String>();
     private String nome;
     private Bitmap bitmap;
-
-    private static final int REQUEST_IMAGE_CAPTURE = 1888;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +72,7 @@ public class AddDuvida extends AppCompatActivity {
 
     }
 
-    public void abrirCamera(){
+    public void abrirCamera() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -93,8 +82,8 @@ public class AddDuvida extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK){
-            Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        if (REQUEST_IMAGE_CAPTURE == requestCode && resultCode == RESULT_OK) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imagemDuvida.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imagemDuvida.setImageBitmap(bitmap);
             imagemDuvida.setMaxHeight(200);
@@ -102,7 +91,6 @@ public class AddDuvida extends AppCompatActivity {
 
         }
     }
-
 
 
     public void salvarDuvida(View view) {
@@ -114,9 +102,9 @@ public class AddDuvida extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Toast.makeText(this, "landscape", Toast.LENGTH_LONG).show();
-        }else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             Toast.makeText(this, "portrait", Toast.LENGTH_LONG).show();
         }
     }

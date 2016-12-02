@@ -2,11 +2,9 @@ package br.ufrn.imd.monitoria_mobile.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,7 +23,7 @@ import br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
-public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapter.DuvidasTurmaViewHolder>  {
+public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapter.DuvidasTurmaViewHolder> {
     private List<Duvida> list;
     private Context context;
 
@@ -48,10 +46,10 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         duvidasTurmaViewHolder.vDisciplina.setVisibility(View.INVISIBLE);
         duvidasTurmaViewHolder.vData.setVisibility(View.VISIBLE);
 
-        if(list.get(i).getStatus() == Duvida.Status.FECHADA){
+        if (list.get(i).getStatus() == Duvida.Status.FECHADA) {
             duvidasTurmaViewHolder.vStatus.setText("RESOLVIDA");
             duvidasTurmaViewHolder.vStatus.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             duvidasTurmaViewHolder.vStatus.setVisibility(View.INVISIBLE);
         }
         duvidasTurmaViewHolder.vTitulo.setText(list.get(i).getTitulo());
@@ -59,28 +57,28 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
         duvidasTurmaViewHolder.vCurtidas.setText(list.get(i).getTotalCurtidas() + " curtidas");
         duvidasTurmaViewHolder.vRespostas.setText(list.get(i).getRespostas().size() + " respostas");
 
-        if(list.get(i).getTotalCurtidas() >=5){
+        if (list.get(i).isCurtida()) {
             duvidasTurmaViewHolder.vBtnCurtir.setVisibility(View.GONE);
             duvidasTurmaViewHolder.vBtnDescurtir.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             duvidasTurmaViewHolder.vBtnCurtir.setVisibility(View.VISIBLE);
             duvidasTurmaViewHolder.vBtnDescurtir.setVisibility(View.GONE);
         }
 
-        if(list.get(i).getFoto() != -1){
+        if (list.get(i).getFoto() != -1) {
             Bitmap mBitmap = BitmapFactory.decodeResource(this.context.getResources(), list.get(i).getFoto());
             duvidasTurmaViewHolder.vFoto.setImageBitmap(mBitmap);
             duvidasTurmaViewHolder.vOptionalFoto.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             duvidasTurmaViewHolder.vOptionalFoto.setVisibility(View.GONE);
         }
 
         final Duvida d = list.get(i);
 
         duvidasTurmaViewHolder.vCard.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         Intent i = new Intent(context.getApplicationContext(), AlunoDetalhesDuvidaActivity.class);
                         i.putExtra("duvida", d);
                         context.startActivity(i);
@@ -148,5 +146,13 @@ public class DuvidasTurmaAdapter extends RecyclerView.Adapter<DuvidasTurmaAdapte
             vFoto = (ImageView) v.findViewById(R.id.duvidaSimples_foto);
 
         }
+    }
+
+    public List<Duvida> getList() {
+        return list;
+    }
+
+    public void setList(List<Duvida> list) {
+        this.list = list;
     }
 }

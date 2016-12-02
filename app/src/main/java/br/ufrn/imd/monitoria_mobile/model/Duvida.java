@@ -1,11 +1,11 @@
 package br.ufrn.imd.monitoria_mobile.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class Duvida implements Serializable{
-
+public class Duvida implements Serializable {
+    private int id;
     private String nomeUsuario;
     private int imagemUsuario;
     private String disciplina;
@@ -16,14 +16,8 @@ public class Duvida implements Serializable{
     private String dataCriacao;
     private List<Comentario> comentarios;
     private List<Resposta> respostas;
-
-    public static enum Status {
-        ABERTA,
-        FECHADA
-    }
-
     private Status status;
-
+    private boolean curtida;
     public Duvida() {
     }
 
@@ -97,9 +91,13 @@ public class Duvida implements Serializable{
         this.status = status;
     }
 
-    public int getFoto() { return foto; }
+    public int getFoto() {
+        return foto;
+    }
 
-    public void setFoto(int foto) { this.foto = foto; }
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
 
     public String getDataCriacao() {
         return dataCriacao;
@@ -110,14 +108,40 @@ public class Duvida implements Serializable{
     }
 
     public List<Comentario> getComentarios() {
-        return comentarios;
+        //return comentarios;
+        return new ArrayList<Comentario>();
     }
 
     public void setComentarios(List<Comentario> comentarios) {
         this.comentarios = comentarios;
     }
 
-    public List<Resposta> getRespostas() {return respostas;}
+    public List<Resposta> getRespostas() {
+        return respostas;
+    }
 
-    public void setRespostas(List<Resposta> respostas) {this.respostas = respostas;}
+    public void setRespostas(List<Resposta> respostas) {
+        this.respostas = respostas;
+    }
+
+    public static enum Status {
+        ABERTA,
+        FECHADA
+    }
+
+    public boolean isCurtida() {
+        return curtida;
+    }
+
+    public void setCurtida(boolean curtida) {
+        this.curtida = curtida;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

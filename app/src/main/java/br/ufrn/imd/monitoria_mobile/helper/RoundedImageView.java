@@ -6,17 +6,16 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.widget.ImageView;
 
 public class RoundedImageView {
 
     /**
      * Cria uma imagem com borda arrendodada a partir de um drawable
-     *
+     * <p>
      * Drawable roundedImage = RoundedImageView.getRoundedImageView(R.drawable.nomeDrawable, 80, 80, 200.0f, getResources());
      * imageView.setImageDrawable(roundedImage);
      *
-     * @param drawable id da imagem que será desenhada
+     * @param drawable     id da imagem que será desenhada
      * @param width
      * @param height
      * @param cornerRadius border radius da imagem
@@ -26,7 +25,7 @@ public class RoundedImageView {
     public static Drawable getRoundedImageView(int drawable, int width, int height, float cornerRadius, Resources mResources) {
 
         // Get the bitmap from drawable resources
-        Bitmap  mBitmap = BitmapFactory.decodeResource(mResources, drawable);
+        Bitmap mBitmap = BitmapFactory.decodeResource(mResources, drawable);
 
         //redimensiona
         mBitmap = Bitmap.createScaledBitmap(mBitmap, width, height, true);
@@ -69,11 +68,11 @@ public class RoundedImageView {
 
     /**
      * Cria uma imagem com borda arrendodada a partir de um drawable
-     *
+     * <p>
      * Drawable roundedImage = RoundedImageView.getRoundedImageView(R.drawable.nomeDrawable, 80, 80, 200.0f, getResources());
      * imageView.setImageDrawable(roundedImage);
      *
-     * @param drawable id da imagem que será desenhada
+     * @param drawable     id da imagem que será desenhada
      * @param cornerRadius border radius da imagem
      * @param mResources
      * @return objeto drawable que pode ser inserido através de: imageView.setImageDrawable()
@@ -81,7 +80,7 @@ public class RoundedImageView {
     public static Drawable getRoundedImageView(int drawable, float cornerRadius, Resources mResources) {
 
         // Get the bitmap from drawable resources
-        Bitmap  mBitmap = BitmapFactory.decodeResource(mResources, drawable);
+        Bitmap mBitmap = BitmapFactory.decodeResource(mResources, drawable);
 
 
         /*
