@@ -108,8 +108,8 @@ public class Duvida implements Serializable {
     }
 
     public List<Comentario> getComentarios() {
-        //return comentarios;
-        return new ArrayList<Comentario>();
+        return comentarios;
+        //return new ArrayList<Comentario>();
     }
 
     public void setComentarios(List<Comentario> comentarios) {

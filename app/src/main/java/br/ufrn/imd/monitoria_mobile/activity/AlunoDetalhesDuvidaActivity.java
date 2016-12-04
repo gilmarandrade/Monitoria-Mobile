@@ -106,7 +106,7 @@ public class AlunoDetalhesDuvidaActivity extends AppCompatActivity {
         vTitulo.setText(duvida.getTitulo());
         vDescricao.setText(duvida.getDescricao());
 
-        vQtdComentarios.setText(duvida.getComentarios().size() + " comentários");
+        //vQtdComentarios.setText(duvida.getComentarios().size() + " comentários");
         vQtdComentarios.setText(duvida.getComentarios().size() + " comentários");
         vQtdRespostas.setText(duvida.getRespostas().size() + " respostas");
 
