@@ -52,9 +52,6 @@ public class DuvidasGeralFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialize dataset, this data would usually come from a local content provider or
-        // remote server.
-        //initDataset();
         progressDialog = ProgressDialog.show(getActivity(), "Aguarde ...", "Atualizando Duvidas...", true);
         progressDialog.setCancelable(true);
         mDataset = new ArrayList<>();

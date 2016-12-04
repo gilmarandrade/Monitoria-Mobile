@@ -113,7 +113,7 @@ public class AddDuvida extends AppCompatActivity {
 
 
     public void salvarDuvida(View view) {
-        progressDialog = ProgressDialog.show(this, "Aguarde ...", "Atualizando Duvidas...", true);
+        progressDialog = ProgressDialog.show(this, "Aguarde ...", "Cadastrando Duvida", true);
         progressDialog.setCancelable(true);
         setDuvida();
     }
@@ -140,7 +140,7 @@ public class AddDuvida extends AppCompatActivity {
         params.put("idPessoa", Dados.getPerfil().getPessoa().getId()+"");
         params.put("assunto",assunto.getText().toString());
         params.put("descricao", descricao.getText().toString());
-        params.put("isDisciplina", disciplina.getId()+"");
+        params.put("idDisciplina", disciplina.getId()+"");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
                 "http://172.20.10.4:8080/monitoria/api/duvida/post", new JSONObject(params),
@@ -155,6 +155,8 @@ public class AddDuvida extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                intent();
                 progressDialog.dismiss();
             }
         }) {
