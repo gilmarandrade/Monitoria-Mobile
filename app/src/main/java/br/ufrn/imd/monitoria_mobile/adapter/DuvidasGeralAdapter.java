@@ -15,13 +15,31 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.ufrn.imd.monitoria_mobile.R;
 import br.ufrn.imd.monitoria_mobile.activity.AlunoDetalhesDuvidaActivity;
 import br.ufrn.imd.monitoria_mobile.activity.ResponderDuvida;
 import br.ufrn.imd.monitoria_mobile.helper.RoundedImageView;
+import br.ufrn.imd.monitoria_mobile.model.Dados;
 import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapter.DuvidasGeralViewHolder> {
@@ -101,9 +119,17 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
         duvidaSimplesViewHolder.vBtnCurtir.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, d.getDescricao(), Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                duvidaSimplesViewHolder.vDescricao.setText("Clicado");
+                d.setCurtida(true);
+                curtir(d,0);
+                notifyItemChanged(duvidaSimplesViewHolder.getAdapterPosition());
+            }
+        });
+
+        duvidaSimplesViewHolder.vBtnDescurtir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                d.setCurtida(false);
+                curtir(d,1);
                 notifyItemChanged(duvidaSimplesViewHolder.getAdapterPosition());
             }
         });
@@ -167,5 +193,48 @@ public class DuvidasGeralAdapter extends RecyclerView.Adapter<DuvidasGeralAdapte
 
     public void setList(List<Duvida> list) {
         this.list = list;
+    }
+
+    private void curtir(final Duvida duvida, Integer curtir){
+
+
+        Map<String,String> params = new HashMap<String, String>();
+        params.put("idPessoa", Dados.getPerfil().getPessoa().getId()+"");
+        params.put("idDuvida",duvida.getId()+"");
+        params.put("idResposta", "0");
+        params.put("curtir", curtir.toString());
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                "http://172.20.10.4:8080/monitoria/api/curtida/post", new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
+
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this.context.getApplicationContext());
+        requestQueue.add(jsonObjReq);
     }
 }

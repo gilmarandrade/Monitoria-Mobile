@@ -1,5 +1,6 @@
 package br.ufrn.imd.monitoria_mobile.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -10,15 +11,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.ufrn.imd.monitoria_mobile.R;
+import br.ufrn.imd.monitoria_mobile.dominio.Disciplina;
+import br.ufrn.imd.monitoria_mobile.model.Dados;
+import br.ufrn.imd.monitoria_mobile.model.Duvida;
 
 public class AddDuvida extends AppCompatActivity {
 
@@ -27,8 +44,12 @@ public class AddDuvida extends AppCompatActivity {
     private ImageButton addImageDuvida;
     private Spinner spn1;
     private List<String> nomes = new ArrayList<String>();
-    private String nome;
+    private Disciplina disciplina;
     private Bitmap bitmap;
+    private EditText assunto;
+    private EditText descricao;
+
+    protected ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +65,14 @@ public class AddDuvida extends AppCompatActivity {
             }
         });
 
-        nomes.add("FMC II - Fundamentos Matematicos");
-        nomes.add("DSDM - Desenvolvimento de Sistema");
-        nomes.add("CDI - Calculo Diferencial I");
-
+        //for(Duvida duvida: Dados.getPerfil().getDisciplinas())
+        assunto = (EditText) findViewById(R.id.assunto_add);
+        descricao = (EditText) findViewById(R.id.descricao_add);
         //Identifica o Spinner no layout
         spn1 = (Spinner) findViewById(R.id.spinner_t);
         //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nomes);
-        ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+        ArrayAdapter<Disciplina> arrayAdapter = new ArrayAdapter<Disciplina>(this, android.R.layout.simple_spinner_dropdown_item, Dados.getPerfil().getDisciplinas());
+        ArrayAdapter<Disciplina> spinnerArrayAdapter = arrayAdapter;
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spn1.setAdapter(spinnerArrayAdapter);
 
@@ -60,8 +80,7 @@ public class AddDuvida extends AppCompatActivity {
         spn1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                nome = adapterView.getItemAtPosition(i).toString();
-//                Toast.makeText(AddDuvida.this, "Nome Selecionado: " + nome, Toast.LENGTH_LONG).show();
+                disciplina = (Disciplina) adapterView.getItemAtPosition(i);
             }
 
             @Override
@@ -94,8 +113,9 @@ public class AddDuvida extends AppCompatActivity {
 
 
     public void salvarDuvida(View view) {
-        Snackbar.make(view, "Adicionar Dúvida não implementado ainda!", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        progressDialog = ProgressDialog.show(this, "Aguarde ...", "Atualizando Duvidas...", true);
+        progressDialog.setCancelable(true);
+        setDuvida();
     }
 
     @Override
@@ -107,5 +127,53 @@ public class AddDuvida extends AppCompatActivity {
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             Toast.makeText(this, "portrait", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void intent(){
+        Intent i = new Intent(this, AlunoMainActivity.class);
+        startActivity(i);
+    }
+    private void setDuvida(){
+
+
+        Map<String,String> params = new HashMap<String, String>();
+        params.put("idPessoa", Dados.getPerfil().getPessoa().getId()+"");
+        params.put("assunto",assunto.getText().toString());
+        params.put("descricao", descricao.getText().toString());
+        params.put("isDisciplina", disciplina.getId()+"");
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                "http://172.20.10.4:8080/monitoria/api/duvida/post", new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        progressDialog.dismiss();
+                        intent();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+            }
+        }) {
+
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
+
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjReq);
     }
 }

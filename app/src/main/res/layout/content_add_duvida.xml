@@ -46,7 +46,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Assunto" />
+                android:hint="Assunto"
+                android:id="@+id/assunto_add"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -56,7 +57,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Descrição" />
+                android:hint="Descrição"
+                android:id="@+id/descricao_add"/>
         </android.support.design.widget.TextInputLayout>
 
         <TextView
