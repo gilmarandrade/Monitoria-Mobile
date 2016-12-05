@@ -8,4 +8,6 @@
     <color name="colorGray">#cccccc</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorCurtir">#00A6FF</color>
+    <color name="colorSplashScreen">#010A39</color>
+
 </resources>

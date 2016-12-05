@@ -11,15 +11,13 @@ import br.ufrn.imd.monitoria_mobile.dominio.*;
 
 import br.ufrn.imd.monitoria_mobile.activity.AlunoMainActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-    }
 
-    public void login(View view) {
         Intent i = new Intent(this, AlunoMainActivity.class);
         OAuthTokenRequest.getInstance().getTokenCredential(this,"http://apitestes.info.ufrn.br/authz-server",DadosApi.CLIENT_ID, DadosApi.CLIENT_SECRET, i);
     }

@@ -34,7 +34,8 @@
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:label="Responder Duvida"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
